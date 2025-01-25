@@ -1,9 +1,14 @@
-[gd_scene load_steps=2 format=3 uid="uid://1aklxhhykdun"]
+[gd_scene load_steps=3 format=3 uid="uid://1aklxhhykdun"]
 
 [ext_resource type="Script" path="res://Maze/map_generator.gd" id="1_0tbos"]
+[ext_resource type="PackedScene" uid="uid://b1f0lrb0gic6p" path="res://Player/player.tscn" id="2_lfliu"]
 
 [node name="Maze" type="Node2D"]
+scale = Vector2(3, 3)
 script = ExtResource("1_0tbos")
+
+[node name="Player" parent="." instance=ExtResource("2_lfliu")]
+z_index = 1
 
 [node name="MapGenerator" type="Node2D" parent="."]
 

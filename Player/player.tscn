@@ -9,7 +9,6 @@ radius = 5.0
 height = 14.0
 
 [node name="Player" type="Area2D"]
-scale = Vector2(10, 10)
 collision_mask = 6
 script = ExtResource("1_gp72g")
 speed = 20
@@ -21,6 +20,7 @@ texture = ExtResource("2_uvmdg")
 shape = SubResource("CapsuleShape2D_b5tpc")
 
 [node name="ProtectionBubble" parent="." instance=ExtResource("3_ukl08")]
+z_index = 2
 position = Vector2(0, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -5,8 +5,10 @@ signal hit
 @export var speed: int = 10
 
 func _ready() -> void:
-	var screen_size = get_viewport_rect().size
-	position = screen_size / 2
+	pass
+	#var screen_size = get_viewport_rect().size
+	#position.x = 0
+	#position.y = screen_size.y / 2
 
 
 func _process(delta: float) -> void:

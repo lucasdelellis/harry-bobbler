@@ -11,15 +11,14 @@ var lastCrossPosition
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	mazeBlockCommon = load("res://MapBlockCommon.tscn")
-	mazeBlockUp = load("res://MapBlockUp.tscn")
-	mazeBlockMiddle = load("res://MapBlockMiddle.tscn")
-	mazeBlockDown = load("res://MapBlockDown.tscn")
+	mazeBlockCommon = load("res://Maze/MapBlockCommon.tscn")
+	mazeBlockUp = load("res://Maze/MapBlockUp.tscn")
+	mazeBlockMiddle = load("res://Maze/MapBlockMiddle.tscn")
+	mazeBlockDown = load("res://Maze/MapBlockDown.tscn")
 	var blockInstance = mazeBlockCommon.instantiate()
 	add_child(blockInstance)
 	direction = 0
-	lastCrossPosition = Vector2(0.0,0.0)
-	pass # Replace with function body.
+	lastCrossPosition = Vector2(0.0,-24.0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -34,8 +33,7 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("SpawnDown"):
 		direction = -1
-		SpawnNewBlock()	
-	pass
+		SpawnNewBlock()
 	
 func SpawnNewBlock():
 	var blockInstance
