@@ -1,0 +1,52 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwch46ervxqrt"]
+
+[ext_resource type="Script" path="res://menu.gd" id="1_niej7"]
+[ext_resource type="Texture2D" uid="uid://180cey72qhyi" path="res://assets/menu/menu_prov.jpg" id="2_ejls4"]
+[ext_resource type="Texture2D" uid="uid://beyvauj6pavp" path="res://assets/menu/button.png" id="3_fdlhe"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("1_niej7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(577, 320)
+scale = Vector2(1.79688, 1.79526)
+texture = ExtResource("2_ejls4")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -148.0
+offset_right = 100.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("3_fdlhe")
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.5
+offset_top = -11.5
+offset_right = 20.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Jugar"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
