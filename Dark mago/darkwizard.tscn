@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://ki86wmg3co0v"]
+
+[ext_resource type="Script" path="res://dark mago/darkwizard.gd" id="1_1jf78"]
+[ext_resource type="Texture2D" path="res://kenney_tiny-dungeon/Tiles/Dark wizard.png" id="1_dqons"]
+[ext_resource type="PackedScene" uid="uid://duty5b3pb6bl7" path="res://Dark mago/atackDarkWizard.tscn" id="2_kjvjl"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n01mq"]
+radius = 40.0
+height = 88.0
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+script = ExtResource("1_1jf78")
+atack = ExtResource("2_kjvjl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(5, 5)
+texture = ExtResource("1_dqons")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-4, 4)
+shape = SubResource("CapsuleShape2D_n01mq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
