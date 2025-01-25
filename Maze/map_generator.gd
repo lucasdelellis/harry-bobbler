@@ -6,8 +6,16 @@ var mazeBlockUp
 var mazeBlockMiddle
 var mazeBlockDown
 
-var direction
+var tileSize = 16
+var pathLenght = 22
+
 var lastCrossPosition
+
+enum DirectionType {
+	UP,
+	MIDDLE,
+	DOWN
+}
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -17,35 +25,23 @@ func _ready() -> void:
 	mazeBlockDown = load("res://Maze/MapBlockDown.tscn")
 	var blockInstance = mazeBlockCommon.instantiate()
 	add_child(blockInstance)
-	direction = 0
 	lastCrossPosition = Vector2(0.0,0.0)
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("SpawnUp"):
-		direction = 1
-		SpawnNewBlock()
-	
-	if Input.is_action_just_pressed("SpawnMiddle"):
-		direction = 0
-		SpawnNewBlock()
-		
-	if Input.is_action_just_pressed("SpawnDown"):
-		direction = -1
-		SpawnNewBlock()	
 	pass
 	
-func SpawnNewBlock():
+func SpawnNewBlock(direction : DirectionType):
 	var blockInstance
-	if direction == 1:
+	#lastCrossPosition = Vector2(lastCrossPosition.x + tileSize * pathLenght, lastCrossPosition.y)
+	if direction == DirectionType.UP:
 		lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0,lastCrossPosition.y +  -64.0)
 		blockInstance = mazeBlockUp.instantiate()
-	elif direction ==0:
+	elif direction == DirectionType.MIDDLE:
 		lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0,lastCrossPosition.y + 0.0)
 		blockInstance = mazeBlockMiddle.instantiate()
-	elif direction ==-1:
+	elif direction == DirectionType.DOWN:
 		lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0,lastCrossPosition.y + 64.0)
 		blockInstance = mazeBlockDown.instantiate()
 		
@@ -55,3 +51,15 @@ func SpawnNewBlock():
 		
 		
 	
+
+
+func _on_player_up_generation() -> void:
+	SpawnNewBlock(DirectionType.UP)
+
+
+func _on_player_middle_generation() -> void:
+	SpawnNewBlock(DirectionType.MIDDLE)
+
+
+func _on_player_down_generation() -> void:
+	SpawnNewBlock(DirectionType.MIDDLE)

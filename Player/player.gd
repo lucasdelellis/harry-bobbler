@@ -1,14 +1,14 @@
 extends Area2D
 
 signal hit
+signal up_generation
+signal middle_generation
+signal down_generation
 
 @export var speed: int = 10
 
 func _ready() -> void:
-	pass
-	#var screen_size = get_viewport_rect().size
-	#position.x = 0
-	#position.y = screen_size.y / 2
+	position.x = -144
 
 
 func _process(delta: float) -> void:
@@ -27,4 +27,21 @@ func _on_body_entered(body: Node2D) -> void:
 		hit.emit()
 		print("wall")
 	
-	# Anadir animacion de golpe
+	# Anadir animacion de golpe	
+	print("Colission")
+
+
+func _on_area_entered(area: Area2D) -> void:
+	print("Colission Area")
+	
+	if area.is_in_group("up_generation"):
+		print("Up Generation")
+		up_generation.emit()
+		
+	if area.is_in_group("middle_generation"):
+		print("Middle Generation")
+		middle_generation.emit()
+
+	if area.is_in_group("down_generation"):
+		print("Down Generation")
+		down_generation.emit()

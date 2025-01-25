@@ -9,9 +9,12 @@ script = ExtResource("1_0tbos")
 
 [node name="Player" parent="." instance=ExtResource("2_lfliu")]
 z_index = 1
-position = Vector2(-100, 0)
 
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2(100, 0)
 
 [node name="MapGenerator" type="Node2D" parent="."]
+
+[connection signal="down_generation" from="Player" to="." method="_on_player_down_generation"]
+[connection signal="middle_generation" from="Player" to="." method="_on_player_middle_generation"]
+[connection signal="up_generation" from="Player" to="." method="_on_player_up_generation"]

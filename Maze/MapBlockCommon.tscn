@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=4 uid="uid://ulxj46fyjsw3"]
+[gd_scene load_steps=8 format=4 uid="uid://ulxj46fyjsw3"]
 
+[ext_resource type="Script" path="res://Maze/map_block_common.gd" id="1_023r6"]
 [ext_resource type="Texture2D" uid="uid://cxvb4pu2v5kjv" path="res://Maze/Tilesetv3.png" id="1_pe068"]
 [ext_resource type="Texture2D" uid="uid://71xp8u5x8w3b" path="res://Maze/tilemap_packed.png" id="2_0im6j"]
 
@@ -837,13 +838,42 @@ texture = ExtResource("2_0im6j")
 sources/2 = SubResource("TileSetAtlasSource_23ei4")
 sources/1 = SubResource("TileSetAtlasSource_bv3av")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yt67c"]
+
 [node name="MapBlock" type="Node2D"]
-position = Vector2(0, -24)
+position = Vector2(0, -1)
+script = ExtResource("1_023r6")
+metadata/_edit_group_ = true
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
+position = Vector2(64, -16)
 tile_map_data = PackedByteArray("AAAAAAEAAQABAAIAAAA=")
 tile_set = SubResource("TileSet_rxij8")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(64, -16)
 tile_map_data = PackedByteArray("AAAAAAEAAQADAAEAAAAAAAAAAQACAAEAAAADAP3/AQACAAEAAAADAAEAAQABAAIAAAACAAEAAQAAAAIAAAABAAEAAQAAAAIAAAADAAUAAQADAAIAAAAEAAUAAQABAAIAAAAFAAUAAQABAAIAAAAGAAUAAQABAAIAAAAHAAUAAQABAAIAAAAEAAEAAQABAAIAAAAFAAEAAQABAAIAAAAGAAEAAQABAAIAAAAHAAEAAQABAAIAAAAEAP3/AQABAAIAAAAFAP3/AQABAAIAAAAGAP3/AQABAAIAAAAHAP3/AQABAAIAAAD//wEAAQABAAIAAAD+/wEAAQABAAIAAAD9/wEAAQABAAIAAAD8/wEAAQABAAIAAAAIAP3/AQABAAIAAAAJAP3/AQABAAIAAAAIAAEAAQABAAIAAAAJAAEAAQABAAIAAAAIAAUAAQABAAIAAAAJAAUAAQABAAIAAAACAP7/AQACAAEAAAABAP//AQACAAEAAAAKAP3/AQABAAIAAAALAP3/AQABAAIAAAAMAP3/AQABAAIAAAANAP3/AQABAAIAAAAOAP3/AQABAAIAAAAKAAEAAQABAAIAAAALAAEAAQABAAIAAAAMAAEAAQABAAIAAAANAAEAAQABAAIAAAAKAAUAAQABAAIAAAALAAUAAQABAAIAAAAMAAUAAQABAAIAAAANAAUAAQABAAIAAAAOAAUAAQABAAIAAAAOAAEAAQABAAIAAAAPAAEAAQABAAIAAAAQAAEAAQABAAIAAAARAAEAAQABAAIAAAAPAP3/AQABAAIAAAAQAP3/AQABAAIAAAARAP3/AQABAAIAAAAPAAUAAQABAAIAAAAQAAUAAQABAAIAAAARAAUAAQABAAIAAAABAAIAAQADAAEAAAACAAMAAQADAAEAAAADAAQAAQADAAEAAAACAAQAAQADAAIAAAABAAMAAQADAAIAAAAAAAIAAQADAAIAAAABAAAAAQACAAIAAAACAP//AQACAAIAAAADAP7/AQACAAIAAAD7/wEAAQAAAAIAAAD6/wEAAQAAAAIAAAD5/wEAAQAAAAIAAAD4/wEAAQAAAAIAAAD3/wEAAQAAAAIAAAD2/wEAAQAAAAIAAAD1/wEAAQAAAAIAAAD0/wEAAQAAAAIAAADz/wEAAQAAAAIAAAA=")
 tile_set = SubResource("TileSet_rxij8")
+
+[node name="UpCollider" type="Area2D" parent="." groups=["up_generation"]]
+position = Vector2(64, -16)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="UpCollider"]
+position = Vector2(67, -59)
+shape = SubResource("RectangleShape2D_yt67c")
+
+[node name="MiddlerCollider" type="Area2D" parent="." groups=["middle_generation"]]
+position = Vector2(64, -16)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiddlerCollider"]
+position = Vector2(64, 5)
+shape = SubResource("RectangleShape2D_yt67c")
+
+[node name="DownCollider" type="Area2D" parent="." groups=["down_generation"]]
+position = Vector2(64, -16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DownCollider" groups=["middle_generation"]]
+position = Vector2(64, 70)
+shape = SubResource("RectangleShape2D_yt67c")
