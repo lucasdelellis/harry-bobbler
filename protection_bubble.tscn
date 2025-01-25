@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bom8jpsiivy35"]
+
+[ext_resource type="Script" path="res://protection_bubble.gd" id="1_w7rcy"]
+[ext_resource type="Texture2D" uid="uid://ot53r32pfk5g" path="res://assets/bubbles/bubble_0.png" id="2_2xkpt"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3cqpf"]
+radius = 13.0
+
+[node name="ProtectionBubble" type="Area2D"]
+script = ExtResource("1_w7rcy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.501961)
+texture = ExtResource("2_2xkpt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3cqpf")
