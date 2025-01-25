@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://ulxj46fyjsw3"]
+[gd_scene load_steps=9 format=4 uid="uid://ulxj46fyjsw3"]
 
 [ext_resource type="Script" path="res://Maze/map_block_common.gd" id="1_023r6"]
 [ext_resource type="Texture2D" uid="uid://cxvb4pu2v5kjv" path="res://Maze/Tilesetv3.png" id="1_pe068"]
@@ -840,6 +840,9 @@ sources/1 = SubResource("TileSetAtlasSource_bv3av")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yt67c"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yxlt1"]
+size = Vector2(21, 22)
+
 [node name="MapBlock" type="Node2D"]
 position = Vector2(0, -1)
 script = ExtResource("1_023r6")
@@ -873,7 +876,15 @@ shape = SubResource("RectangleShape2D_yt67c")
 
 [node name="DownCollider" type="Area2D" parent="." groups=["down_generation"]]
 position = Vector2(64, -16)
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DownCollider" groups=["middle_generation"]]
 position = Vector2(64, 70)
 shape = SubResource("RectangleShape2D_yt67c")
+
+[node name="AreaStairs" type="Area2D" parent="." groups=["stairs"]]
+collision_layer = 8
+
+[node name="StairsCollision" type="CollisionShape2D" parent="AreaStairs"]
+position = Vector2(52.5, -12)
+shape = SubResource("RectangleShape2D_yxlt1")

@@ -62,4 +62,8 @@ func _on_player_middle_generation() -> void:
 
 
 func _on_player_down_generation() -> void:
-	SpawnNewBlock(DirectionType.MIDDLE)
+	SpawnNewBlock(DirectionType.DOWN)
+
+
+func _on_player_stairs() -> void:
+	pass # Replace with function body.
