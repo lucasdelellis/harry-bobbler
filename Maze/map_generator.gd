@@ -18,7 +18,8 @@ func _ready() -> void:
 	var blockInstance = mazeBlockCommon.instantiate()
 	add_child(blockInstance)
 	direction = 0
-	lastCrossPosition = Vector2(0.0,-24.0)
+	lastCrossPosition = Vector2(0.0,0.0)
+	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -33,7 +34,8 @@ func _process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed("SpawnDown"):
 		direction = -1
-		SpawnNewBlock()
+		SpawnNewBlock()	
+	pass
 	
 func SpawnNewBlock():
 	var blockInstance
@@ -50,7 +52,6 @@ func SpawnNewBlock():
 
 	add_child(blockInstance)
 	blockInstance.position = lastCrossPosition
-	$Camera.position = lastCrossPosition
 		
 		
 	

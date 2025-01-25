@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://borjjycvsmdqf"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gvkvc"]
-load_path = "res://.godot/imported/tile_0049.png-169c22e7ee1f70adcc24657e22617551.ctex"
 
 [node name="Block" type="Node2D"]
 
