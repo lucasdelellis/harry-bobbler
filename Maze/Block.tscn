@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://borjjycvsmdqf"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gvkvc"]
+load_path = "res://.godot/imported/tile_0049.png-169c22e7ee1f70adcc24657e22617551.ctex"
+
+[node name="Block" type="Node2D"]
+
+[node name="Tile" type="Sprite2D" parent="."]
+texture = SubResource("CompressedTexture2D_gvkvc")
+
+[node name="Tile2" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = SubResource("CompressedTexture2D_gvkvc")
+
+[node name="Tile3" type="Sprite2D" parent="."]
+position = Vector2(0, -32)
+texture = SubResource("CompressedTexture2D_gvkvc")
+
+[node name="Tile4" type="Sprite2D" parent="."]
+position = Vector2(0, -48)
+texture = SubResource("CompressedTexture2D_gvkvc")
+
+[node name="Tile5" type="Sprite2D" parent="."]
+position = Vector2(0, -64)
+texture = SubResource("CompressedTexture2D_gvkvc")
+
+[node name="Tile6" type="Sprite2D" parent="."]
+position = Vector2(16, -32)
+texture = SubResource("CompressedTexture2D_gvkvc")
+
+[node name="Tile7" type="Sprite2D" parent="."]
+position = Vector2(-16, -32)
+texture = SubResource("CompressedTexture2D_gvkvc")
+
+[node name="Tile8" type="Sprite2D" parent="."]
+position = Vector2(32, -32)
+texture = SubResource("CompressedTexture2D_gvkvc")
+
+[node name="Tile9" type="Sprite2D" parent="."]
+position = Vector2(-32, -32)
+texture = SubResource("CompressedTexture2D_gvkvc")

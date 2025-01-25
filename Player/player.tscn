@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://b1f0lrb0gic6p"]
 
-[ext_resource type="Script" path="res://player.gd" id="1_gp72g"]
+[ext_resource type="Script" path="res://Player/player.gd" id="1_gp72g"]
 [ext_resource type="Texture2D" uid="uid://d6kqc0e88kol" path="res://assets/player.png" id="2_uvmdg"]
-[ext_resource type="PackedScene" uid="uid://bom8jpsiivy35" path="res://protection_bubble.tscn" id="3_ukl08"]
+[ext_resource type="PackedScene" uid="uid://bom8jpsiivy35" path="res://Player/protection_bubble.tscn" id="3_ukl08"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b5tpc"]
 radius = 5.0

@@ -11,8 +11,16 @@ config_version=5
 [application]
 
 config/name="harry_bobbler"
+run/main_scene="res://Maze/Maze.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://Maze/icon.svg"
+
+[input]
+
+SpawnUp={
+"deadzone": 0.5,
+"events": []
+}
 
 [rendering]
 
