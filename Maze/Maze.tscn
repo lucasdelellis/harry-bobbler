@@ -22,11 +22,11 @@ script = ExtResource("2_k1xaw")
 
 [node name="Player" parent="." instance=ExtResource("2_lfliu")]
 z_index = 1
+speed = 20
 
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2(100, 0)
 
 [connection signal="down_generation" from="Player" to="." method="_on_player_down_generation"]
 [connection signal="middle_generation" from="Player" to="." method="_on_player_middle_generation"]
-[connection signal="stairs" from="Player" to="." method="_on_player_stairs"]
 [connection signal="up_generation" from="Player" to="." method="_on_player_up_generation"]

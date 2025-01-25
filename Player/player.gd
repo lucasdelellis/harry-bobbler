@@ -4,11 +4,9 @@ signal hit
 signal up_generation
 signal middle_generation
 signal down_generation
-signal stairs
 
 var playerPath
 var lastPosition
-var tween = create_tween()
 
 enum CurrentMovementType{
 	MOVE_UP,
@@ -18,41 +16,40 @@ enum CurrentMovementType{
 
 var CurrentMovement
 
-@export var speed: int = 10
+@export var speed: int = 80
+var tileSize = 16
+var pathLenght = 22
+var stairLenght = 4
+var pathLenghtInPixel = pathLenght * tileSize
 
 func _ready() -> void:
 	position.x = -144
 
 	CurrentMovement = CurrentMovementType.MOVE_MIDDLE
-	tween.tween_property(self,"position",Vector2(position + Vector2(352.0,0.0)),1)
+	stairsMovement()
 
 
 func _process(delta: float) -> void:
 	var velocity = Vector2.ZERO
-	#velocity.x += 1
-	#velocity = velocity.normalized() * speed
-	#position += velocity * delta
-	if Input.is_action_just_pressed("SpawnUp"):
+	if Input.is_action_just_pressed("up"):
 		CurrentMovement = CurrentMovementType.MOVE_UP
-	if Input.is_action_just_pressed("SpawnDown"):
+	if Input.is_action_just_pressed("down"):
 		CurrentMovement = CurrentMovementType.MOVE_DOWN
 
 func stairsMovement():
-	#playerPath.clear_points()
-	print("stairs")
-	if CurrentMovement == CurrentMovementType.MOVE_MIDDLE:
-		tween = create_tween()
-		tween.tween_property(self,"position",Vector2(position + Vector2(352.0,0.0)),1)
+	var tween = create_tween()
+	var newPosition = position
+	
 	if CurrentMovement == CurrentMovementType.MOVE_UP:
-		tween = create_tween()
-		var newPosition = position + Vector2(80.0,-64.0)
-		tween.tween_property(self,"position",Vector2(newPosition),1)
-		tween.tween_property(self,"position",Vector2(newPosition + Vector2(352.0,0.0)),1)
+		newPosition = position + Vector2(80.0,-64.0)
+		tween.tween_property(self,"position",newPosition,1)
+		
 	if CurrentMovement == CurrentMovementType.MOVE_DOWN:
-		tween = create_tween()
-		var newPosition = position + Vector2(90.0,64.0)
-		tween.tween_property(self,"position",Vector2(newPosition),1)
-		tween.tween_property(self,"position",Vector2(newPosition + Vector2(352.0,0.0)),1)
+		newPosition = position + Vector2(90.0,64.0)
+		tween.tween_property(self,"position", newPosition,1)
+		
+	print("2")
+	tween.tween_property(self,"position", newPosition + Vector2(pathLenghtInPixel, 0), pathLenghtInPixel / 80)
 	CurrentMovement = CurrentMovementType.MOVE_MIDDLE
 
 func _on_body_entered(body: Node2D) -> void:
@@ -81,13 +78,11 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("down_generation"):
 		print("Down Generation")
 		down_generation.emit()
-<<<<<<< HEAD
+		
 	if area.is_in_group("stairs"):
 		stairsMovement()
-=======
 		
 	if area.is_in_group("enemies"):
 		hit.emit()
 		area.queue_free()
 		print("Hit")
->>>>>>> 456632b (feat: DarkWizard)

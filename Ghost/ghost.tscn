@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://dojahn1rybijq"]
+
+[ext_resource type="Script" path="res://Ghost/ghost.gd" id="1_6kp4k"]
+[ext_resource type="Texture2D" uid="uid://ukd7ssrgnx42" path="res://assets/enemies/ghost.png" id="2_45ant"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3mt4y"]
+radius = 6.0
+height = 16.0
+
+[node name="Ghost" type="CharacterBody2D"]
+script = ExtResource("1_6kp4k")
+limite = 5
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_45ant")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_3mt4y")
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="visibility_changed" from="Sprite2D" to="." method="_on_sprite_2d_visibility_changed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
