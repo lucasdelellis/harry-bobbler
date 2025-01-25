@@ -81,5 +81,13 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.is_in_group("down_generation"):
 		print("Down Generation")
 		down_generation.emit()
+<<<<<<< HEAD
 	if area.is_in_group("stairs"):
 		stairsMovement()
+=======
+		
+	if area.is_in_group("enemies"):
+		hit.emit()
+		area.queue_free()
+		print("Hit")
+>>>>>>> 456632b (feat: DarkWizard)
