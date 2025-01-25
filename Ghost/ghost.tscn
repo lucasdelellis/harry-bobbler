@@ -7,7 +7,8 @@
 radius = 6.0
 height = 16.0
 
-[node name="Ghost" type="CharacterBody2D"]
+[node name="Ghost" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
 script = ExtResource("1_6kp4k")
 limite = 5
 metadata/_edit_group_ = true
@@ -23,5 +24,4 @@ shape = SubResource("CapsuleShape2D_3mt4y")
 [node name="Timer" type="Timer" parent="."]
 autostart = true
 
-[connection signal="visibility_changed" from="Sprite2D" to="." method="_on_sprite_2d_visibility_changed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

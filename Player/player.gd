@@ -60,6 +60,12 @@ func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("wall"):
 		hit.emit()
 		print("wall")
+		
+	if body.is_in_group("enemies"):
+		hit.emit()
+		body.queue_free()
+		print("Hit")
+	
 	
 	# Anadir animacion de golpe	
 	print("Colission")
