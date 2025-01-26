@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Maze/map_generator.gd" id="1_0tbos"]
 [ext_resource type="Script" path="res://Maze/player_path.gd" id="2_k1xaw"]
 [ext_resource type="PackedScene" uid="uid://b1f0lrb0gic6p" path="res://Player/player.tscn" id="2_lfliu"]
-[ext_resource type="PackedScene" path="res://win.tscn" id="2_scmqb"]
+[ext_resource type="PackedScene" uid="uid://dwh4sqtwn3o8t" path="res://win.tscn" id="2_scmqb"]
 [ext_resource type="PackedScene" uid="uid://ciyp3vgfoital" path="res://Victory/victory.tscn" id="2_xu0ub"]
 [ext_resource type="PackedScene" uid="uid://bmrj6n7vdlebl" path="res://Lose/lose.tscn" id="3_7ocjj"]
 [ext_resource type="Script" path="res://Maze/spawn.gd" id="4_8ybdi"]
@@ -19,7 +19,7 @@ script = ExtResource("1_0tbos")
 win_scene = ExtResource("2_xu0ub")
 power_ups = ExtResource("2_scmqb")
 lose_scene = ExtResource("3_7ocjj")
-max_blocks_per_level = 2
+max_blocks_per_level = 8
 
 [node name="MapGenerator" type="Node2D" parent="."]
 

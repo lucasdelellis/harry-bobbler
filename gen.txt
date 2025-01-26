@@ -1,35 +1,35 @@
+P--
+--D
+---
+
+---
+--G
+-PN
+
 -G-
+--N
 -D-
--P-
 
-DDD
-DDD
-DDD
+--D
+G--
+NNA
 
-DDD
-DDD
-DDD
+A--
+-PN
+--D
 
-DDD
-DDD
-DDD
+P--
+--D
+---
 
-DDD
-DDD
-DDD
+G-G
+--G
+-PN
 
-DDD
-DDD
-DDD
+-G-
+--N
+-D-
 
-DDD
-DDD
-DDD
-
-DDD
-DDD
-DDD
-
-DDD
-DDD
-DDD
+--G
+G--
+NNA
