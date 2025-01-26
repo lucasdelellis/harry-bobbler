@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://1aklxhhykdun"]
+[gd_scene load_steps=8 format=3 uid="uid://1aklxhhykdun"]
 
 [ext_resource type="Script" path="res://Maze/map_generator.gd" id="1_0tbos"]
 [ext_resource type="Script" path="res://Maze/player_path.gd" id="2_k1xaw"]
 [ext_resource type="PackedScene" uid="uid://b1f0lrb0gic6p" path="res://Player/player.tscn" id="2_lfliu"]
 [ext_resource type="Script" path="res://Maze/spawn.gd" id="4_8ybdi"]
+[ext_resource type="PackedScene" path="res://Maze/scrollling.tscn" id="4_eika2"]
 [ext_resource type="PackedScene" uid="uid://bfq7er3u5bj8x" path="res://UI/hud.tscn" id="4_iaxdl"]
 
 [sub_resource type="Curve2D" id="Curve2D_xmqdl"]
@@ -29,6 +30,8 @@ speed = 150
 
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2(100, 0)
+
+[node name="Scrollling" parent="Player/Camera" instance=ExtResource("4_eika2")]
 
 [node name="Spawn" type="Node2D" parent="."]
 script = ExtResource("4_8ybdi")
