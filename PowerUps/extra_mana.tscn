@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyy48ffd64uab"]
+
+[ext_resource type="Texture2D" uid="uid://botnokfa4k67w" path="res://assets/ui/extra_mana.png" id="1_4rwrp"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_34en2"]
+radius = 31.0644
+
+[node name="ExtraMana" type="Area2D" groups=["extra_mana"]]
+scale = Vector2(0.2, 0.2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_4rwrp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_34en2")

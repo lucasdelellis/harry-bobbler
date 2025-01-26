@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_px5qq"]
 size = Vector2(41, 8)
 
-[node name="SpikeAtack" type="CharacterBody2D"]
+[node name="SpikeAtack" type="CharacterBody2D" groups=["enemies"]]
 script = ExtResource("1_htcui")
 distancia = 100
 spikespeed = 350

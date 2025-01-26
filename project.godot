@@ -26,6 +26,8 @@ window/size/resizable=false
 [global_group]
 
 enemies=""
+extra_life=""
+extra_mana=""
 
 [input]
 

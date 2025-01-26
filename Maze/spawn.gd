@@ -7,20 +7,11 @@ var spike_attack:= preload("res://Spikes/spike_atack.tscn") as PackedScene
 var spike_passive:= preload("res://Spikes/spike_passive.tscn")
 var spike_nothing:= preload("res://Spikes/static_spike.tscn")
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	loadSpawnText()
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 	
 func Spawn(block,currentGen):
-	print("spawning")
 	var spawnPoints = block.get_node("SpawnPoints")
-	print(spawnPoints.testAsd)
 	var index=0
 	for spawnNode in spawnPoints.upNodes:
 		var newSpawn = GetSpawn(currentGen,0,index)
