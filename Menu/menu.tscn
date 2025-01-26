@@ -1,10 +1,17 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwch46ervxqrt"]
+[gd_scene load_steps=13 format=3 uid="uid://dwch46ervxqrt"]
 
 [ext_resource type="Script" path="res://Menu/menu.gd" id="1_niej7"]
 [ext_resource type="VideoStream" path="res://assets/menu/menu.ogv" id="2_juhyh"]
 [ext_resource type="Texture2D" uid="uid://beyvauj6pavp" path="res://assets/menu/button.png" id="3_fdlhe"]
+[ext_resource type="Texture2D" uid="uid://qqdefqvxxw4h" path="res://Maze/catacumbas.jpg" id="3_nxb58"]
 [ext_resource type="FontFile" uid="uid://d2cpiolm88uie" path="res://assets/fonts/Magic Bubble.ttf" id="4_jd67s"]
 [ext_resource type="LabelSettings" uid="uid://crhvi6kq4effe" path="res://assets/fonts/label_font.tres" id="5_g1hr1"]
+[ext_resource type="Texture2D" uid="uid://dyhkomdq214kj" path="res://assets/enemies/dark_wizard.png" id="7_fvyg8"]
+[ext_resource type="LabelSettings" uid="uid://df8iuq1ohn2rt" path="res://assets/fonts/info_font.tres" id="7_svhsr"]
+[ext_resource type="Texture2D" uid="uid://ukd7ssrgnx42" path="res://assets/enemies/ghost.png" id="8_r0j7c"]
+[ext_resource type="Texture2D" uid="uid://cvs4mpx3xqse5" path="res://Spikes/spike.png" id="9_n7pq5"]
+[ext_resource type="Texture2D" uid="uid://botnokfa4k67w" path="res://assets/ui/extra_mana.png" id="10_pcrjv"]
+[ext_resource type="Texture2D" uid="uid://qki5i1c0xk8b" path="res://assets/ui/heart.png" id="11_0go86"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -21,6 +28,14 @@ scale = Vector2(0.6, 0.6)
 stream = ExtResource("2_juhyh")
 autoplay = true
 loop = true
+
+[node name="InstructionsBackG" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+texture = ExtResource("3_nxb58")
+expand_mode = 1
 
 [node name="Play" type="Button" parent="."]
 layout_mode = 1
@@ -94,5 +109,209 @@ theme_override_font_sizes/font_size = 50
 text = "Instrucciones"
 label_settings = ExtResource("5_g1hr1")
 
+[node name="InstLabels" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 50.0
+offset_top = 50.0
+offset_right = 1102.0
+offset_bottom = 614.0
+
+[node name="Story" type="Label" parent="InstLabels"]
+layout_mode = 2
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -286.5
+offset_top = 20.0
+offset_right = 286.5
+offset_bottom = 141.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "La escuela de magia está bajo ataque y queda en manos del legendario mago Harry Bubbler salvar el día. Pero... la edad hizo estragos en él. Su amnesia lo dejó con un único hechizo: la burbuja protectora."
+label_settings = ExtResource("7_svhsr")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Enemies" type="Label" parent="InstLabels"]
+layout_mode = 0
+offset_top = 200.0
+offset_right = 180.0
+offset_bottom = 223.0
+text = "Enemigos y obstaculos"
+label_settings = ExtResource("5_g1hr1")
+
+[node name="EnemiesExp" type="Label" parent="InstLabels"]
+layout_mode = 0
+offset_top = 248.0
+offset_right = 305.0
+offset_bottom = 427.0
+text = "Mago Oscuro: lanzarán flechas de poder. Cada una de ellas quitará una vida.
+Pinchos: caerá desde las alturas para aplastar a Harry.
+Fantasma: cuando aparezca, Harry morirá de miedo y perderá una vida.
+"
+label_settings = ExtResource("7_svhsr")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Mana" type="Label" parent="InstLabels"]
+offset_left = 375.0
+offset_top = 200.0
+offset_right = 555.0
+offset_bottom = 241.0
+text = "Mana
+"
+label_settings = ExtResource("5_g1hr1")
+
+[node name="ManaExp" type="Label" parent="InstLabels"]
+offset_left = 375.0
+offset_top = 237.0
+offset_right = 680.0
+offset_bottom = 337.0
+text = "Se pierden al recibir daño sin una burbuja protectora, pueden ganarse al pasar de nivel."
+label_settings = ExtResource("7_svhsr")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Life" type="Label" parent="InstLabels"]
+offset_left = 700.0
+offset_top = 200.0
+offset_right = 880.0
+offset_bottom = 241.0
+text = "Vidas"
+label_settings = ExtResource("5_g1hr1")
+
+[node name="LifeExp" type="Label" parent="InstLabels"]
+offset_left = 700.0
+offset_top = 237.0
+offset_right = 1005.0
+offset_bottom = 338.0
+text = "Es utilizado para generar la burbuja protectora. Si no se controla, Harry se quedará sin poder. Puede recuperarse al pasar de nivel."
+label_settings = ExtResource("7_svhsr")
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="DarkWizard" type="TextureRect" parent="InstLabels"]
+layout_mode = 0
+offset_top = 500.0
+offset_right = 40.0
+offset_bottom = 540.0
+texture = ExtResource("7_fvyg8")
+
+[node name="Ghost" type="TextureRect" parent="InstLabels"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 500.0
+offset_right = 140.0
+offset_bottom = 540.0
+texture = ExtResource("8_r0j7c")
+
+[node name="Spike" type="TextureRect" parent="InstLabels"]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 510.0
+offset_right = 258.07
+offset_bottom = 540.0
+texture = ExtResource("9_n7pq5")
+expand_mode = 3
+
+[node name="ManaCont" type="Control" parent="InstLabels"]
+anchors_preset = 0
+offset_left = 420.0
+offset_top = 370.0
+offset_right = 620.0
+offset_bottom = 410.0
+
+[node name="Mana2" type="TextureRect" parent="InstLabels/ManaCont"]
+offset_left = 50.0
+offset_right = 90.0
+offset_bottom = 40.0
+texture = ExtResource("10_pcrjv")
+expand_mode = 1
+
+[node name="Mana3" type="TextureRect" parent="InstLabels/ManaCont"]
+offset_left = 100.0
+offset_right = 140.0
+offset_bottom = 40.0
+texture = ExtResource("10_pcrjv")
+expand_mode = 1
+
+[node name="Mana1" type="TextureRect" parent="InstLabels/ManaCont"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("10_pcrjv")
+expand_mode = 1
+
+[node name="Mana4" type="TextureRect" parent="InstLabels/ManaCont"]
+offset_left = 150.0
+offset_right = 190.0
+offset_bottom = 40.0
+texture = ExtResource("10_pcrjv")
+expand_mode = 1
+
+[node name="LifeCont" type="Control" parent="InstLabels"]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 750.0
+offset_top = 400.0
+offset_right = 950.0
+offset_bottom = 440.0
+
+[node name="Life1" type="TextureRect" parent="InstLabels/LifeCont"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("11_0go86")
+expand_mode = 1
+
+[node name="Life2" type="TextureRect" parent="InstLabels/LifeCont"]
+offset_left = 50.0
+offset_right = 90.0
+offset_bottom = 40.0
+texture = ExtResource("11_0go86")
+expand_mode = 1
+
+[node name="Life3" type="TextureRect" parent="InstLabels/LifeCont"]
+offset_left = 100.0
+offset_right = 140.0
+offset_bottom = 40.0
+texture = ExtResource("11_0go86")
+expand_mode = 1
+
+[node name="Life4" type="TextureRect" parent="InstLabels/LifeCont"]
+offset_left = 150.0
+offset_right = 190.0
+offset_bottom = 40.0
+texture = ExtResource("11_0go86")
+expand_mode = 1
+
+[node name="BackToMenu" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -231.0
+offset_top = -130.0
+offset_right = -23.0
+offset_bottom = -22.0
+grow_horizontal = 0
+grow_vertical = 0
+icon = ExtResource("3_fdlhe")
+
+[node name="Label" type="Label" parent="BackToMenu"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 20.0
+offset_right = 188.0
+offset_bottom = 90.0
+text = "Menu"
+label_settings = ExtResource("5_g1hr1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
+[connection signal="pressed" from="BackToMenu" to="." method="_on_back_to_menu_pressed"]
