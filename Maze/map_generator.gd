@@ -6,12 +6,12 @@ var mazeBlockMiddle = preload("res://Maze/MapBlockMiddle.tscn")
 var mazeBlockDown = preload("res://Maze/MapBlockDown.tscn")
 var mazeBlockFinal = preload("res://Maze/MapBlockFinal.tscn")
 
-@export var jugador : Area2D
 @export var win_scene : PackedScene
 @export var lose_scene : PackedScene
+@export var max_blocks_per_level : int
 
 var tileSize = 16
-var pathLenght = 22
+var pathLenght = 28
 
 var currentGen
 
@@ -40,27 +40,31 @@ func _process(delta: float) -> void:
 	var mana_percentage = $Player.current_mana * 100 / globals.mana
 	$HUD.update_mana(mana_percentage)
 	
-func SpawnNewBlock(direction : DirectionType):                     
-	if currentGen >= 3 :
-		print("holaaa")
-		get_tree().change_scene_to_packed(win_scene)
-		return
-
-	var blockInstance
+func SpawnNewBlock(direction : DirectionType):
+	var newPosition = Vector2.ZERO
+	newPosition.x += tileSize * pathLenght
+	var blockReference: PackedScene
+	
 	if direction == DirectionType.UP:
-		lastCrossPosition = Vector2(lastCrossPosition.x+ 448.0, lastCrossPosition.y +  -64.0)
-		blockInstance = mazeBlockUp.instantiate()
+		blockReference = mazeBlockUp
+		newPosition.y -= tileSize * 4
 	elif direction == DirectionType.MIDDLE:
-		lastCrossPosition = Vector2(lastCrossPosition.x+ 448.0, lastCrossPosition.y + 0.0)
-		blockInstance = mazeBlockMiddle.instantiate()
+		blockReference = mazeBlockMiddle
 	elif direction == DirectionType.DOWN:
-		lastCrossPosition = Vector2(lastCrossPosition.x+ 448.0, lastCrossPosition.y + 64.0)
-		blockInstance = mazeBlockDown.instantiate()
+		blockReference = mazeBlockDown
+		newPosition.y += tileSize * 4
 		
+	if currentGen >= max_blocks_per_level:
+		blockReference = mazeBlockFinal
+
+	var blockInstance = blockReference.instantiate()
 	add_child(blockInstance)
+	lastCrossPosition += newPosition
 	blockInstance.position = lastCrossPosition
-	$Spawn.Spawn(blockInstance,currentGen)
-	currentGen+=1	
+	
+	if currentGen < max_blocks_per_level:
+		$Spawn.Spawn(blockInstance,currentGen)
+		currentGen+=1	
 
 
 func _on_player_up_generation() -> void:

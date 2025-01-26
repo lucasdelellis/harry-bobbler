@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://boi2tsedubaci"]
+[gd_scene load_steps=8 format=4 uid="uid://cvejqagjqsmpv"]
 
 [ext_resource type="Texture2D" uid="uid://cxvb4pu2v5kjv" path="res://Maze/Tilesetv3.png" id="1_ghwwf"]
 [ext_resource type="Script" path="res://Maze/map_block_final.gd" id="1_xuesc"]

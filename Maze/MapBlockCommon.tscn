@@ -1,10 +1,8 @@
-[gd_scene load_steps=11 format=4 uid="uid://ulxj46fyjsw3"]
+[gd_scene load_steps=9 format=4 uid="uid://ulxj46fyjsw3"]
 
 [ext_resource type="Script" path="res://Maze/map_block_common.gd" id="1_023r6"]
 [ext_resource type="Texture2D" uid="uid://cxvb4pu2v5kjv" path="res://Maze/Tilesetv3.png" id="1_pe068"]
 [ext_resource type="Texture2D" uid="uid://71xp8u5x8w3b" path="res://Maze/tilemap_packed.png" id="2_0im6j"]
-[ext_resource type="PackedScene" uid="uid://ki86wmg3co0v" path="res://DarkWizard/darkwizard.tscn" id="4_x6ppb"]
-[ext_resource type="PackedScene" uid="uid://dojahn1rybijq" path="res://Ghost/ghost.tscn" id="5_j58di"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bv3av"]
 texture = ExtResource("1_pe068")
@@ -889,10 +887,3 @@ collision_layer = 8
 [node name="StairsCollision" type="CollisionShape2D" parent="AreaStairs"]
 position = Vector2(64.5, -12)
 shape = SubResource("RectangleShape2D_yxlt1")
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("4_x6ppb")]
-position = Vector2(216, -9)
-
-[node name="Ghost" parent="." instance=ExtResource("5_j58di")]
-position = Vector2(274, -24)
-limite = 30

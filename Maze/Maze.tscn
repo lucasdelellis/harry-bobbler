@@ -12,12 +12,12 @@
 
 [sub_resource type="Curve2D" id="Curve2D_xmqdl"]
 
-[node name="Maze" type="Node2D" node_paths=PackedStringArray("jugador")]
+[node name="Maze" type="Node2D"]
 scale = Vector2(3, 3)
 script = ExtResource("1_0tbos")
-jugador = NodePath("Player")
 win_scene = ExtResource("2_scmqb")
 lose_scene = ExtResource("3_7ocjj")
+max_blocks_per_level = 3
 
 [node name="MapGenerator" type="Node2D" parent="."]
 
