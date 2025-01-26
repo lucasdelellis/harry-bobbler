@@ -20,4 +20,4 @@ func update_life(life: int) -> void:
 		$LifeBar.add_child(heart)
 
 func update_mana(mana: int) -> void:
-	$Control/Mana.text = str(mana)
+	$ManaBar.value = mana

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://dybnq8bujayld"]
+
+[ext_resource type="Texture2D" uid="uid://b4cxoibetohl2" path="res://assets/ui/bubble_bar_0.png" id="1_xmbk1"]
+[ext_resource type="Texture2D" uid="uid://cuqfr6brmlh2" path="res://assets/ui/bubble_bar_1.png" id="2_h370h"]
+
+[node name="TextureProgressBar" type="TextureProgressBar"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture_under = ExtResource("1_xmbk1")
+texture_over = ExtResource("2_h370h")
+texture_progress = ExtResource("2_h370h")
