@@ -61,10 +61,11 @@ func SpawnNewBlock(direction : DirectionType):
 	elif direction == DirectionType.DOWN:
 		lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0,lastCrossPosition.y + 64.0)
 		blockInstance = mazeBlockDown.instantiate()
-		add_child(blockInstance)
-		blockInstance.position = lastCrossPosition
-		$Spawn.Spawn(blockInstance,currentGen)
-		currentGen+=1
+		
+	add_child(blockInstance)
+	blockInstance.position = lastCrossPosition
+	$Spawn.Spawn(blockInstance,currentGen)
+	currentGen+=1
 		
 	
 
