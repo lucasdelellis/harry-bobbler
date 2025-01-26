@@ -8,8 +8,6 @@ var jugador : Node2D
 
 func _physics_process(delta: float) -> void:
 	if (position.x - jugador.position.x) <= distancia:
-		#print("Cae")
 		velocity.y = spikespeed 
-
-
+		
 	move_and_slide()
