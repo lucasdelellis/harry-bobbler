@@ -57,8 +57,10 @@ func loadSpawnText():
 	var content = file.get_as_text()
 	var index = 0
 	while not file.eof_reached(): # iterate through all lines until the end of file is reached
-		var line = file.get_line()
-		spawnOrder.append(line)
+		for i in range(0,3):
+			var line = file.get_line()
+			spawnOrder.append(line)
+		file.get_line()
 	file.close()
 	print(spawnOrder)
 	return content
