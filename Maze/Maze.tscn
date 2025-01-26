@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://1aklxhhykdun"]
+[gd_scene load_steps=10 format=3 uid="uid://1aklxhhykdun"]
 
 [ext_resource type="Script" path="res://Maze/map_generator.gd" id="1_0tbos"]
 [ext_resource type="PackedScene" uid="uid://dwh4sqtwn3o8t" path="res://win.tscn" id="2_jh68n"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b1f0lrb0gic6p" path="res://Player/player.tscn" id="2_lfliu"]
 [ext_resource type="Script" path="res://Maze/spawn.gd" id="4_8ybdi"]
 [ext_resource type="PackedScene" uid="uid://bfq7er3u5bj8x" path="res://UI/hud.tscn" id="4_iaxdl"]
+[ext_resource type="AudioStream" uid="uid://b54bnlrmdmype" path="res://Banda Sonora Harry Bobbler/Gameplay.mp3" id="8_xbcum"]
 
 [sub_resource type="Curve2D" id="Curve2D_xmqdl"]
 
@@ -39,6 +40,10 @@ position = Vector2(100, 0)
 script = ExtResource("4_8ybdi")
 
 [node name="HUD" parent="." instance=ExtResource("4_iaxdl")]
+
+[node name="Gameplay" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_xbcum")
+parameters/looping = true
 
 [connection signal="down_generation" from="Player" to="." method="_on_player_down_generation"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
