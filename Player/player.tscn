@@ -1,8 +1,69 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1f0lrb0gic6p"]
+[gd_scene load_steps=16 format=3 uid="uid://b1f0lrb0gic6p"]
 
 [ext_resource type="Script" path="res://Player/player.gd" id="1_gp72g"]
-[ext_resource type="Texture2D" uid="uid://d6kqc0e88kol" path="res://assets/player.png" id="2_uvmdg"]
+[ext_resource type="Texture2D" uid="uid://cs4ounsukackc" path="res://assets/wizard/hurt_1.png" id="2_rfmkv"]
+[ext_resource type="Texture2D" uid="uid://cgtjggl7j3fxu" path="res://assets/wizard/dead_1.png" id="2_sdv5u"]
+[ext_resource type="Texture2D" uid="uid://d3jf55xpt60vt" path="res://assets/wizard/dead_2.png" id="3_r54pd"]
 [ext_resource type="PackedScene" uid="uid://bom8jpsiivy35" path="res://Player/protection_bubble.tscn" id="3_ukl08"]
+[ext_resource type="Texture2D" uid="uid://dlbm4hu7inij3" path="res://assets/wizard/hurt_2.png" id="3_xcwae"]
+[ext_resource type="Texture2D" uid="uid://c7h6pbpnb80u6" path="res://assets/wizard/run_1.png" id="4_fcot0"]
+[ext_resource type="Texture2D" uid="uid://dlvyevw30okrp" path="res://assets/wizard/dead_3.png" id="4_w4805"]
+[ext_resource type="Texture2D" uid="uid://cued664er2k6v" path="res://assets/wizard/hurt_3.png" id="4_y54uf"]
+[ext_resource type="Texture2D" uid="uid://bkjbua6vxwrfm" path="res://assets/wizard/run_2.png" id="5_ld6ip"]
+[ext_resource type="Texture2D" uid="uid://bvrior1ibkunp" path="res://assets/wizard/dead_4.png" id="5_ubv0j"]
+[ext_resource type="Texture2D" uid="uid://cxd6dk6bvp8uo" path="res://assets/wizard/run_3.png" id="6_dv43r"]
+[ext_resource type="Texture2D" uid="uid://dvgktmk8vhw33" path="res://assets/wizard/run_4.png" id="7_sp8qi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_225xs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_sdv5u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_r54pd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_w4805")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ubv0j")
+}],
+"loop": false,
+"name": &"deadth",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": ExtResource("2_rfmkv")
+}, {
+"duration": 0.5,
+"texture": ExtResource("3_xcwae")
+}, {
+"duration": 0.5,
+"texture": ExtResource("4_y54uf")
+}],
+"loop": false,
+"name": &"hit",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fcot0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ld6ip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_dv43r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_sp8qi")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_b5tpc"]
 radius = 5.0
@@ -12,17 +73,22 @@ height = 14.0
 collision_mask = 14
 script = ExtResource("1_gp72g")
 speed = 50
-metadata/_edit_group_ = true
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(8, -8)
-texture = ExtResource("2_uvmdg")
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(10, -9)
+scale = Vector2(0.05, 0.05)
+sprite_frames = SubResource("SpriteFrames_225xs")
+animation = &"deadth"
+autoplay = "run"
+frame = 3
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(8, -8)
 shape = SubResource("CapsuleShape2D_b5tpc")
 
 [node name="ProtectionBubble" parent="." instance=ExtResource("3_ukl08")]
+visible = false
 z_index = 2
 position = Vector2(8, -8)
 consumption = 1
