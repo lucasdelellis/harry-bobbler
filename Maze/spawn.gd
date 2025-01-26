@@ -24,7 +24,7 @@ func Spawn(block,currentGen):
 		var newThing = newSpawn.instantiate()
 		add_child(newThing)
 		newThing.position.x = block.position.x + spawnNode.position.x
-		newThing.position.y = spawnNode.position.y
+		newThing.position.y =  block.position.y + spawnNode.position.y
 		index+=1
 	index = 0
 	for spawnNode in spawnPoints.middleNodes:
@@ -32,7 +32,7 @@ func Spawn(block,currentGen):
 		var newThing = newSpawn.instantiate()
 		add_child(newThing)
 		newThing.position.x = block.position.x + spawnNode.position.x
-		newThing.position.y = spawnNode.position.y
+		newThing.position.y =  block.position.y +spawnNode.position.y
 		index+=1
 	index = 0
 	for spawnNode in spawnPoints.downNodes:
@@ -40,7 +40,7 @@ func Spawn(block,currentGen):
 		var newThing = newSpawn.instantiate()
 		add_child(newThing)
 		newThing.position.x = block.position.x + spawnNode.position.x
-		newThing.position.y = spawnNode.position.y
+		newThing.position.y = block.position.y + spawnNode.position.y
 		index+=1
 		
 func GetSpawn(gen,pos,num):
