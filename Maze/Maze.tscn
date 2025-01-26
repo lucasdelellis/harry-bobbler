@@ -13,9 +13,9 @@
 [node name="Maze" type="Node2D" node_paths=PackedStringArray("jugador")]
 scale = Vector2(3, 3)
 script = ExtResource("1_0tbos")
-jugador = NodePath("Player")
 win_scene = ExtResource("2_jh68n")
 lose_scene = ExtResource("2_kh2al")
+jugador = NodePath("Player")
 
 [node name="MapGenerator" type="Node2D" parent="."]
 
@@ -29,8 +29,8 @@ script = ExtResource("2_k1xaw")
 
 [node name="Player" parent="." instance=ExtResource("2_lfliu")]
 z_index = 1
-mana = 100.0
 speed = 150
+mana = 100.0
 
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2(100, 0)
