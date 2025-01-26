@@ -5,25 +5,28 @@
 [ext_resource type="PackedScene" uid="uid://duty5b3pb6bl7" path="res://DarkWizard/atackDarkWizard.tscn" id="2_kjvjl"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_n01mq"]
-radius = 5.0
-height = 10.0
+radius = 1.0
+height = 4.0
 
 [node name="DarkWizard" type="Area2D"]
 collision_layer = 0
 script = ExtResource("1_1jf78")
 atack = ExtResource("2_kjvjl")
 
+[node name="Attack" type="CollisionShape2D" parent="."]
+position = Vector2(-75, 1)
+shape = SubResource("CapsuleShape2D_n01mq")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_dqons")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-29, 1)
-shape = SubResource("CapsuleShape2D_n01mq")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 2.5
 one_shot = true
 autostart = true
 
+[node name="ArrowDarkWizard" parent="." instance=ExtResource("2_kjvjl")]
+
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="arrow_hit" from="ArrowDarkWizard" to="." method="_on_arrow_dark_wizard_arrow_hit"]

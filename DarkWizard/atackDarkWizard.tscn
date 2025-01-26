@@ -7,13 +7,13 @@
 radius = 3.97244
 height = 15.9422
 
-[node name="Area2D" type="Area2D" groups=["enemies"]]
+[node name="ArrowDarkWizard" type="Area2D" groups=["enemies"]]
 rotation = -1.59698
 collision_layer = 2
 script = ExtResource("1_o0alc")
 speed = 300
 
-[node name="Atackdarkwizard" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_txy1k")
 
@@ -21,9 +21,4 @@ texture = ExtResource("1_txy1k")
 position = Vector2(9.35793e-06, -1.09673e-05)
 shape = SubResource("CapsuleShape2D_ntfox")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
