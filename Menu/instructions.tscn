@@ -27,8 +27,7 @@ offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
-text = "Historia del juego
-"
+text = "La escuela de magia está bajo ataque y queda en manos del legendario mago Harry Bubbler salvar el día. Pero... la edad hizo estragos en él. Su amnesia lo dejó con un único hechizo: la burbuja protectora."
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 1
