@@ -6,7 +6,6 @@ signal up_generation
 signal middle_generation
 signal down_generation
 
-@export var mana: float
 var current_mana: float
 var is_protection_bubble_active: bool
 
@@ -31,7 +30,7 @@ var pathLenghtInPixel = pathLenght * tileSize
 func _ready() -> void:
 	position.x = -9 * tileSize
 	is_protection_bubble_active = false
-	current_mana = mana
+	current_mana = globals.mana
 	
 	$AnimatedSprite2D.play("run")
 
@@ -40,6 +39,7 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	print(current_mana)
 	var velocity = Vector2(speed * delta, 0)
 	position += velocity
 	

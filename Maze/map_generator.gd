@@ -37,7 +37,7 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	
-	var mana_percentage = $Player.current_mana * 100 / $Player.mana
+	var mana_percentage = $Player.current_mana * 100 / globals.mana
 	$HUD.update_mana(mana_percentage)
 	
 func SpawnNewBlock(direction : DirectionType):                     

@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3 uid="uid://bhlwxc3am8k2q"]
+
+[ext_resource type="FontFile" uid="uid://d2cpiolm88uie" path="res://assets/fonts/Magic Bubble.ttf" id="1_sqbno"]
+[ext_resource type="Texture2D" uid="uid://cb3qnb3occ5mm" path="res://assets/bubbles/bubble_0_ButtonIcon.png" id="2_3as3d"]
+[ext_resource type="Texture2D" uid="uid://qki5i1c0xk8b" path="res://assets/ui/heart.png" id="3_lkj76"]
+
+[sub_resource type="Theme" id="Theme_b6t4i"]
+
+[node name="UpgradeMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.10748, 0.10748, 0.10748, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_sqbno")
+theme_override_font_sizes/font_size = 30
+text = "Choose Upgrade"
+horizontal_alignment = 1
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="ButtonContainerButton" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/ButtonContainerButton"]
+layout_mode = 2
+theme = SubResource("Theme_b6t4i")
+theme_override_fonts/font = ExtResource("1_sqbno")
+theme_override_font_sizes/font_size = 30
+text = "Upgrade Bubble"
+icon = ExtResource("2_3as3d")
+icon_alignment = 1
+vertical_icon_alignment = 2
+
+[node name="MarginContainerHealth" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="Button2" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainerHealth"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_sqbno")
+theme_override_font_sizes/font_size = 30
+text = "Upgrade Health"
+icon = ExtResource("3_lkj76")
+icon_alignment = 1
+vertical_icon_alignment = 2

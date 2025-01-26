@@ -17,4 +17,5 @@ func _on_instructions_pressed():
 
 func _on_play_pressed():
 	globals.life = 3
+	globals.mana = 20
 	get_tree().change_scene_to_packed(maze_scene)
