@@ -11,4 +11,5 @@ func _process(delta):
 	pass
 
 func _on_button_pressed():
+	globals.life = 3
 	get_tree().change_scene_to_packed(maze_scene)

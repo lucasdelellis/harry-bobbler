@@ -11,7 +11,7 @@ height = 15.9422
 rotation = -1.59698
 collision_layer = 2
 script = ExtResource("1_o0alc")
-speed = 100
+speed = 300
 
 [node name="Atackdarkwizard" type="Sprite2D" parent="."]
 texture_filter = 1
