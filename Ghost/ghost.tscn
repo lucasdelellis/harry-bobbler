@@ -10,7 +10,7 @@ height = 16.0
 [node name="Ghost" type="CharacterBody2D" groups=["enemies"]]
 collision_layer = 2
 script = ExtResource("1_6kp4k")
-limite = 65
+limite = 100
 velocidadX = -10
 metadata/_edit_group_ = true
 

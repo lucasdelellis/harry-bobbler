@@ -1,6 +1,6 @@
-AAA
-N-N
-PPP
+-G-
+-D-
+-P-
 
 DDD
 DDD

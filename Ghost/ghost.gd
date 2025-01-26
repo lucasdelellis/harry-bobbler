@@ -8,15 +8,15 @@ var is_visible = true
 
 func _ready() -> void:
 	posicion_inicial = position.y
-	velocity.y = -100
+	velocity.y = -300
 	velocity.x = velocidadX
 
 func _physics_process(delta: float) -> void:
 	if position.y <= posicion_inicial-limite:
-		velocity.y = 100
+		velocity.y = 300
 		
 	if position.y >= posicion_inicial+limite:
-		velocity.y = -100
+		velocity.y = -300
 		
 	move_and_slide() 
 

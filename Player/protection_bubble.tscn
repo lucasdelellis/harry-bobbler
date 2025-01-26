@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bom8jpsiivy35"]
+[gd_scene load_steps=7 format=3 uid="uid://bom8jpsiivy35"]
 
 [ext_resource type="Script" path="res://Player/protection_bubble.gd" id="1_w7rcy"]
 [ext_resource type="Texture2D" uid="uid://ot53r32pfk5g" path="res://assets/bubbles/bubble_0.png" id="2_2xkpt"]
 [ext_resource type="AudioStream" uid="uid://d1g0myg00a7al" path="res://assets/music/bubble_activated.mp3" id="3_5kd8q"]
 [ext_resource type="AudioStream" uid="uid://divjvwkk2fm62" path="res://assets/music/bubble_deactivate.mp3" id="4_6qatj"]
+[ext_resource type="AudioStream" uid="uid://cllghvvay5ogx" path="res://assets/music/bubble_attack.mp3" id="5_53g8e"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3cqpf"]
 radius = 11.0
@@ -25,6 +26,9 @@ stream = ExtResource("3_5kd8q")
 
 [node name="DeactivateSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_6qatj")
+
+[node name="AttackSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_53g8e")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

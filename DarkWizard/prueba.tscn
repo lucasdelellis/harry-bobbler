@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://2qhfjc7wo675"]
-
-[ext_resource type="PackedScene" uid="uid://ki86wmg3co0v" path="res://DarkWizard/darkwizard.tscn" id="1_iwsqy"]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="CharacterBody2D" parent="." instance=ExtResource("1_iwsqy")]
-
-[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]

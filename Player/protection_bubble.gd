@@ -34,10 +34,12 @@ func deactivate() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
+	$AttackSound.play()
 	area.hide()
 	area.queue_free()
 
 
 func _on_body_entered(body: Node2D) -> void:
+	$AttackSound.play()
 	body.hide()
 	body.queue_free()
