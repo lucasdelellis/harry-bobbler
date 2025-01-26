@@ -7,8 +7,8 @@
 size = Vector2(41, 8)
 
 [node name="SpikeAtack" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 2
 script = ExtResource("1_htcui")
-distancia = 100
 spikespeed = 350
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

@@ -1,11 +1,9 @@
 extends Node2D
 
 var spawnOrder = []
-var ghost := preload("res://Ghost/ghost.tscn") as PackedScene 
-var darkWizard:= preload("res://DarkWizard/darkwizard.tscn") as PackedScene 
-var spike_attack:= preload("res://Spikes/spike_atack.tscn") as PackedScene
-var spike_passive:= preload("res://Spikes/spike_passive.tscn")
-var spike_nothing:= preload("res://Spikes/static_spike.tscn")
+var ghost : PackedScene = preload("res://Ghost/ghost.tscn")
+var darkWizard : PackedScene = preload("res://DarkWizard/darkwizard.tscn")
+var spike_attack : PackedScene = preload("res://Spikes/spike_atack.tscn")
 
 func _ready() -> void:
 	loadSpawnText()
@@ -47,11 +45,17 @@ func GetSpawn(gen,pos,num):
 	elif(spawnText == "A"):
 		spawnThing = spike_attack.instantiate()
 		spawnThing.jugador = get_parent().get_node("Player")
+		spawnThing.distancia = 30
 	elif(spawnText == "P"):
-		spawnThing = spike_passive.instantiate()
+		spawnThing = spike_attack.instantiate()
 		spawnThing.jugador = get_parent().get_node("Player")
+		spawnThing.distancia = 30
+		spawnThing.spikespeed = 125 
 	elif(spawnText == "N"):
-		spawnThing = spike_nothing.instantiate()
+		spawnThing = spike_attack.instantiate()
+		spawnThing.jugador = get_parent().get_node("Player")
+		spawnThing.spikespeed = 0
+		
 	return spawnThing
 	
 func loadSpawnText():

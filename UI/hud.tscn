@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://UI/hud.gd" id="1_yjj7j"]
 [ext_resource type="PackedScene" uid="uid://du12q0mxdudgj" path="res://UI/hearts.tscn" id="2_4xg71"]
-[ext_resource type="PackedScene" uid="uid://dybnq8bujayld" path="res://UI/progress.tscn" id="3_s5ef7"]
+[ext_resource type="PackedScene" path="res://UI/progress.tscn" id="3_s5ef7"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_yjj7j")
