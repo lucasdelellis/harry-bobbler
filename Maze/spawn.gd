@@ -3,6 +3,9 @@ extends Node2D
 var spawnOrder = []
 var ghost := preload("res://Ghost/ghost.tscn") as PackedScene 
 var darkWizard:= preload("res://DarkWizard/darkwizard.tscn") as PackedScene 
+var spike_attack:= preload("res://Spikes/spike_atack.tscn") as PackedScene
+var spike_passive:= preload("res://Spikes/spike_passive.tscn")
+var spike_nothing:= preload("res://Spikes/static_spike.tscn")
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -21,35 +24,40 @@ func Spawn(block,currentGen):
 	var index=0
 	for spawnNode in spawnPoints.upNodes:
 		var newSpawn = GetSpawn(currentGen,0,index)
-		var newThing = newSpawn.instantiate()
-		add_child(newThing)
-		newThing.position.x = block.position.x + spawnNode.position.x
-		newThing.position.y =  block.position.y + spawnNode.position.y
+		add_child(newSpawn)
+		newSpawn.position.x = block.position.x + spawnNode.position.x
+		newSpawn.position.y =  block.position.y + spawnNode.position.y
 		index+=1
 	index = 0
 	for spawnNode in spawnPoints.middleNodes:
 		var newSpawn = GetSpawn(currentGen,1,index)
-		var newThing = newSpawn.instantiate()
-		add_child(newThing)
-		newThing.position.x = block.position.x + spawnNode.position.x
-		newThing.position.y =  block.position.y +spawnNode.position.y
+		add_child(newSpawn)
+		newSpawn.position.x = block.position.x + spawnNode.position.x
+		newSpawn.position.y =  block.position.y +spawnNode.position.y
 		index+=1
 	index = 0
 	for spawnNode in spawnPoints.downNodes:
 		var newSpawn = GetSpawn(currentGen,2,index)
-		var newThing = newSpawn.instantiate()
-		add_child(newThing)
-		newThing.position.x = block.position.x + spawnNode.position.x
-		newThing.position.y = block.position.y + spawnNode.position.y
+		add_child(newSpawn)
+		newSpawn.position.x = block.position.x + spawnNode.position.x
+		newSpawn.position.y = block.position.y + spawnNode.position.y
 		index+=1
 		
 func GetSpawn(gen,pos,num):
 	var spawnThing
 	var spawnText = spawnOrder[(gen*3)+pos][num]
 	if(spawnText == "G"):
-		spawnThing = ghost
+		spawnThing = ghost.instantiate()
 	elif(spawnText == "D"):
-		spawnThing = darkWizard
+		spawnThing = darkWizard.instantiate()
+	elif(spawnText == "A"):
+		spawnThing = spike_attack.instantiate()
+		spawnThing.jugador = get_parent().get_node("Player")
+	elif(spawnText == "P"):
+		spawnThing = spike_passive.instantiate()
+		spawnThing.jugador = get_parent().get_node("Player")
+	elif(spawnText == "N"):
+		spawnThing = spike_nothing.instantiate()
 	return spawnThing
 	
 func loadSpawnText():

@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://1aklxhhykdun"]
+[gd_scene load_steps=7 format=3 uid="uid://1aklxhhykdun"]
 
 [ext_resource type="Script" path="res://Maze/map_generator.gd" id="1_0tbos"]
 [ext_resource type="Script" path="res://Maze/player_path.gd" id="2_k1xaw"]
@@ -32,6 +32,7 @@ position = Vector2(100, 0)
 
 [node name="Spawn" type="Node2D" parent="."]
 script = ExtResource("4_8ybdi")
+
 [node name="HUD" parent="." instance=ExtResource("4_iaxdl")]
 
 [connection signal="down_generation" from="Player" to="." method="_on_player_down_generation"]

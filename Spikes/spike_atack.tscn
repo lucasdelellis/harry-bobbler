@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://df7u536r5mn02"]
+
+[ext_resource type="Script" path="res://Spikes/spike_atack.gd" id="1_htcui"]
+[ext_resource type="Texture2D" uid="uid://cvs4mpx3xqse5" path="res://Spikes/spike.png" id="2_5ff7v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_px5qq"]
+size = Vector2(41, 8)
+
+[node name="SpikeAtack" type="CharacterBody2D"]
+script = ExtResource("1_htcui")
+distancia = 100
+spikespeed = 350
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -22)
+shape = SubResource("RectangleShape2D_px5qq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.43051e-06, -31)
+rotation = 3.14159
+scale = Vector2(0.118846, 0.118846)
+texture = ExtResource("2_5ff7v")
