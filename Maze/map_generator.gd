@@ -46,13 +46,13 @@ func SpawnNewBlock(direction : DirectionType):
 
 	var blockInstance
 	if direction == DirectionType.UP:
-		lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0, lastCrossPosition.y +  -64.0)
+		lastCrossPosition = Vector2(lastCrossPosition.x+ 448.0, lastCrossPosition.y +  -64.0)
 		blockInstance = mazeBlockUp.instantiate()
 	elif direction == DirectionType.MIDDLE:
-		lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0, lastCrossPosition.y + 0.0)
+		lastCrossPosition = Vector2(lastCrossPosition.x+ 448.0, lastCrossPosition.y + 0.0)
 		blockInstance = mazeBlockMiddle.instantiate()
 	elif direction == DirectionType.DOWN:
-		lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0, lastCrossPosition.y + 64.0)
+		lastCrossPosition = Vector2(lastCrossPosition.x+ 448.0, lastCrossPosition.y + 64.0)
 		blockInstance = mazeBlockDown.instantiate()
 		
 	add_child(blockInstance)
