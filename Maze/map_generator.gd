@@ -9,6 +9,8 @@ var mazeBlockDown
 var tileSize = 16
 var pathLenght = 22
 
+var currentGen
+
 var lastCrossPosition
 
 enum DirectionType {
@@ -26,6 +28,7 @@ func _ready() -> void:
 	var blockInstance = mazeBlockCommon.instantiate()
 	add_child(blockInstance)
 	lastCrossPosition = Vector2(0.0,0.0)
+	currentGen=0
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -48,7 +51,8 @@ func SpawnNewBlock(direction : DirectionType):
 
 	add_child(blockInstance)
 	blockInstance.position = lastCrossPosition
-		
+	$Spawn.Spawn(blockInstance,currentGen)
+	currentGen+=1
 		
 	
 

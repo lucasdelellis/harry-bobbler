@@ -895,5 +895,4 @@ position = Vector2(216, -9)
 
 [node name="Ghost" parent="." instance=ExtResource("5_j58di")]
 position = Vector2(274, -24)
-limite = 15
-velocidadX = -10
+limite = 30
