@@ -12,19 +12,22 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("action"):
-		if enabled:
-			activate()
-	else:
-		deactivate()
+	if enabled:
+		if Input.is_action_just_pressed("action"):
+				activate()
+		elif Input.is_action_just_released("action"):
+			deactivate()
 
 func activate() -> void:
 	show()
+	$ActivateSound.play()
 	set_collision_mask_value(2, true)
 	bubble_protection_activate.emit()
 	
 func deactivate() -> void:
 	hide()
+	$ActivateSound.stop()
+	$DeactivateSound.play()
 	set_collision_mask_value(2, false)
 	bubble_protection_deactivate.emit()
 
