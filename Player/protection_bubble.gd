@@ -3,13 +3,18 @@ extends Area2D
 signal bubble_protection_activate
 signal bubble_protection_deactivate
 
+@export var consumption: int
+var enabled: bool
+
 func _ready() -> void:
+	enabled = true
 	deactivate()
 
 
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("action"):
-		activate()
+		if enabled:
+			activate()
 	else:
 		deactivate()
 

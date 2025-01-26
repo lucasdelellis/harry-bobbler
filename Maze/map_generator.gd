@@ -1,6 +1,5 @@
 extends Node2D
 
-
 var mazeBlockCommon
 var mazeBlockUp
 var mazeBlockMiddle
@@ -29,11 +28,14 @@ func _ready() -> void:
 	add_child(blockInstance)
 	lastCrossPosition = Vector2(0.0,0.0)
 	currentGen=0
+	
+	$HUD.update_life($Player.life)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var mana_percentage = $Player.current_mana * 100 / $Player.mana
+	$HUD.update_mana(mana_percentage)
 	
 func SpawnNewBlock(direction : DirectionType):
 	var blockInstance
@@ -71,3 +73,7 @@ func _on_player_down_generation() -> void:
 
 func _on_player_stairs() -> void:
 	pass # Replace with function body.
+
+
+func _on_player_hit() -> void:
+	$HUD.update_life($Player.life)

@@ -25,6 +25,9 @@ shape = SubResource("CapsuleShape2D_b5tpc")
 [node name="ProtectionBubble" parent="." instance=ExtResource("3_ukl08")]
 z_index = 2
 position = Vector2(8, -8)
+consumption = 1
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="bubble_protection_activate" from="ProtectionBubble" to="." method="_on_protection_bubble_bubble_protection_activate"]
+[connection signal="bubble_protection_deactivate" from="ProtectionBubble" to="." method="_on_protection_bubble_bubble_protection_deactivate"]
