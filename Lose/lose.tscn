@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://bmrj6n7vdlebl"]
+
+[ext_resource type="Script" path="res://Lose/lose.gd" id="1_nnhy5"]
+
+[node name="Lose" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nnhy5")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1168.0
+offset_bottom = 640.0
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 335.0
+offset_top = 343.0
+offset_right = 758.0
+offset_bottom = 502.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_right = 427.0
+offset_bottom = 161.0
+text = "Perdiste capo anda al menu
+"
+metadata/_edit_lock_ = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dwch46ervxqrt"]
+[gd_scene load_steps=5 format=3 uid="uid://dwch46ervxqrt"]
 
 [ext_resource type="Script" path="res://Menu/menu.gd" id="1_niej7"]
 [ext_resource type="VideoStream" path="res://assets/menu/loop-Menu.ogv" id="3_auqjx"]
 [ext_resource type="Texture2D" uid="uid://beyvauj6pavp" path="res://assets/menu/button.png" id="3_fdlhe"]
-[ext_resource type="VideoStream" path="res://assets/menu/Intro-Harry-Bubbler.ogv" id="4_exlfn"]
 [ext_resource type="FontFile" uid="uid://d2cpiolm88uie" path="res://assets/fonts/Magic Bubble.ttf" id="4_jd67s"]
 
 [node name="Menu" type="Control"]
@@ -12,15 +11,6 @@ anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 script = ExtResource("1_niej7")
-
-[node name="IntroVideo" type="VideoStreamPlayer" parent="."]
-layout_mode = 0
-offset_right = 1920.0
-offset_bottom = 1088.0
-scale = Vector2(0.6, 0.6)
-stream = ExtResource("4_exlfn")
-volume_db = 24.0
-autoplay = true
 
 [node name="MenuVideo" type="VideoStreamPlayer" parent="."]
 layout_mode = 0

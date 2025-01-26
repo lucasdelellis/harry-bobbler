@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwm22p4c7chv3"]
+
+[ext_resource type="Script" path="res://win.gd" id="1_jr6bd"]
+
+[node name="win" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_top = -1.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jr6bd")
+metadata/_edit_lock_ = true
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1161.0
+offset_bottom = 651.0
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 325.0
+offset_right = 769.0
+offset_bottom = 456.0
+metadata/_edit_lock_ = true
+
+[node name="Label" type="Label" parent="Button"]
+layout_mode = 0
+offset_right = 233.0
+offset_bottom = 121.0
+text = "Ganaste capo anda al siguiene nivel
+"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

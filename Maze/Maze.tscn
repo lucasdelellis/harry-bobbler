@@ -1,16 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://1aklxhhykdun"]
+[gd_scene load_steps=9 format=3 uid="uid://1aklxhhykdun"]
 
 [ext_resource type="Script" path="res://Maze/map_generator.gd" id="1_0tbos"]
+[ext_resource type="PackedScene" uid="uid://bwm22p4c7chv3" path="res://win.tscn" id="2_jh68n"]
 [ext_resource type="Script" path="res://Maze/player_path.gd" id="2_k1xaw"]
+[ext_resource type="PackedScene" uid="uid://bmrj6n7vdlebl" path="res://Lose/lose.tscn" id="2_kh2al"]
 [ext_resource type="PackedScene" uid="uid://b1f0lrb0gic6p" path="res://Player/player.tscn" id="2_lfliu"]
 [ext_resource type="Script" path="res://Maze/spawn.gd" id="4_8ybdi"]
 [ext_resource type="PackedScene" uid="uid://bfq7er3u5bj8x" path="res://UI/hud.tscn" id="4_iaxdl"]
 
 [sub_resource type="Curve2D" id="Curve2D_xmqdl"]
 
-[node name="Maze" type="Node2D"]
+[node name="Maze" type="Node2D" node_paths=PackedStringArray("jugador")]
 scale = Vector2(3, 3)
 script = ExtResource("1_0tbos")
+jugador = NodePath("Player")
+win_scene = ExtResource("2_jh68n")
+lose_scene = ExtResource("2_kh2al")
 
 [node name="MapGenerator" type="Node2D" parent="."]
 
@@ -24,8 +29,8 @@ script = ExtResource("2_k1xaw")
 
 [node name="Player" parent="." instance=ExtResource("2_lfliu")]
 z_index = 1
-mana = 5.0
-speed = 20
+mana = 100000.0
+speed = 80
 
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2(100, 0)
@@ -36,6 +41,7 @@ script = ExtResource("4_8ybdi")
 [node name="HUD" parent="." instance=ExtResource("4_iaxdl")]
 
 [connection signal="down_generation" from="Player" to="." method="_on_player_down_generation"]
+[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="middle_generation" from="Player" to="." method="_on_player_middle_generation"]
 [connection signal="up_generation" from="Player" to="." method="_on_player_up_generation"]

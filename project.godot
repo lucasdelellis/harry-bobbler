@@ -15,6 +15,10 @@ run/main_scene="res://Maze/Maze.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://Maze/icon.svg"
 
+[autoload]
+
+globals="*res://Globals/globals.gd"
+
 [display]
 
 window/size/resizable=false
