@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://b54bnlrmdmype"
+path="res://.godot/imported/Gameplay.mp3-3c632590479d2b10765dd73b4c482a82.mp3str"
+
+[deps]
+
+source_file="res://Banda Sonora Harry Bobbler/Gameplay.mp3"
+dest_files=["res://.godot/imported/Gameplay.mp3-3c632590479d2b10765dd73b4c482a82.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

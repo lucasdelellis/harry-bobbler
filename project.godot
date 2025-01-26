@@ -27,7 +27,6 @@ window/size/resizable=false
 
 enemies=""
 extra_life=""
-extra_mana=""
 
 [input]
 

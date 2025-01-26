@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 
 const SPEED = 300.0
@@ -7,16 +7,11 @@ const JUMP_VELOCITY = -400.0
 
 
 func _ready() -> void:
-	var A = atack.instantiate()
-	add_child(A)
-	
+	var arrow = atack.instantiate()
+	add_child(arrow)
 
-func _physics_process(delta: float) -> void:
-
-
-	move_and_slide()
-
-
-func _on_timer_timeout() -> void:
-	var A = atack.instantiate()
-	add_child(A)
+func _on_area_entered(area: Area2D) -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0, 0.1)
+	await tween.finished
+	queue_free()
