@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://d2cpiolm88uie" path="res://assets/fonts/Magic Bubble.ttf" id="4_jd67s"]
 [ext_resource type="LabelSettings" uid="uid://crhvi6kq4effe" path="res://assets/fonts/label_font.tres" id="5_g1hr1"]
 [ext_resource type="Texture2D" uid="uid://dyhkomdq214kj" path="res://assets/enemies/dark_wizard.png" id="7_fvyg8"]
-[ext_resource type="LabelSettings" uid="uid://df8iuq1ohn2rt" path="res://assets/fonts/info_font.tres" id="7_svhsr"]
+[ext_resource type="LabelSettings" path="res://assets/fonts/info_font.tres" id="7_svhsr"]
 [ext_resource type="Texture2D" uid="uid://ukd7ssrgnx42" path="res://assets/enemies/ghost.png" id="8_r0j7c"]
 [ext_resource type="Texture2D" uid="uid://cvs4mpx3xqse5" path="res://Spikes/spike.png" id="9_n7pq5"]
 [ext_resource type="Texture2D" uid="uid://botnokfa4k67w" path="res://assets/ui/extra_mana.png" id="10_pcrjv"]
