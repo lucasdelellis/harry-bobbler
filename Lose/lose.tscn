@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bmrj6n7vdlebl"]
+[gd_scene load_steps=5 format=3 uid="uid://bmrj6n7vdlebl"]
 
 [ext_resource type="Script" path="res://Lose/lose.gd" id="1_nnhy5"]
+[ext_resource type="VideoStream" path="res://assets/menu/Game-Over.ogv" id="2_hlhlw"]
+[ext_resource type="Texture2D" uid="uid://beyvauj6pavp" path="res://assets/menu/button.png" id="3_v4bcn"]
+[ext_resource type="LabelSettings" uid="uid://crhvi6kq4effe" path="res://assets/fonts/label_font.tres" id="4_qi6qa"]
 
 [node name="Lose" type="Control"]
 layout_mode = 3
@@ -11,26 +14,45 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_nnhy5")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
 layout_mode = 0
-offset_right = 1168.0
-offset_bottom = 640.0
-metadata/_edit_lock_ = true
+offset_right = 1920.0
+offset_bottom = 1088.0
+scale = Vector2(0.6, 0.6)
+stream = ExtResource("2_hlhlw")
+autoplay = true
+loop = true
 
 [node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 335.0
-offset_top = 343.0
-offset_right = 758.0
-offset_bottom = 502.0
-metadata/_edit_lock_ = true
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -104.0
+offset_top = -122.0
+offset_right = 104.0
+offset_bottom = -14.0
+grow_horizontal = 2
+grow_vertical = 0
+icon = ExtResource("3_v4bcn")
+flat = true
 
 [node name="Label" type="Label" parent="Button"]
-layout_mode = 0
-offset_right = 427.0
-offset_bottom = 161.0
-text = "Perdiste capo anda al menu
-"
-metadata/_edit_lock_ = true
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.033
+anchor_top = 0.068
+anchor_right = 0.033
+anchor_bottom = 0.068
+offset_left = 9.136
+offset_top = 12.656
+offset_right = 184.136
+offset_bottom = 82.656
+text = "Menu"
+label_settings = ExtResource("4_qi6qa")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

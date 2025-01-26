@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://crhvi6kq4effe"]
+
+[ext_resource type="FontFile" uid="uid://d2cpiolm88uie" path="res://assets/fonts/Magic Bubble.ttf" id="1_wfvy3"]
+
+[resource]
+font = ExtResource("1_wfvy3")
+font_size = 30
