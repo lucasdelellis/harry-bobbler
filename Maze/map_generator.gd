@@ -6,6 +6,8 @@ var mazeBlockMiddle = preload("res://Maze/MapBlockMiddle.tscn")
 var mazeBlockDown = preload("res://Maze/MapBlockDown.tscn")
 var mazeBlockFinal = preload("res://Maze/MapBlockFinal.tscn")
 
+var main_scene = preload("res://Menu/menu.tscn")
+
 @export var win_scene : PackedScene
 @export var lose_scene : PackedScene
 @export var max_blocks_per_level : int
@@ -89,3 +91,7 @@ func _on_player_hit() -> void:
 
 func _on_player_game_over() -> void:
 	get_tree().change_scene_to_packed(lose_scene)
+
+
+func _on_player_portal_entered() -> void:
+	get_tree().change_scene_to_packed(main_scene)

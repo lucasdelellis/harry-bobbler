@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://bg581yjc1afni"]
 
 [ext_resource type="Shader" path="res://Maze/background_scroll.gdshader" id="1_y0n7q"]
-[ext_resource type="Texture2D" uid="uid://dal873o4icab8" path="res://Maze/catacumbas.jpg" id="2_0qvck"]
+[ext_resource type="Texture2D" uid="uid://qqdefqvxxw4h" path="res://Maze/catacumbas.jpg" id="2_0qvck"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_nyt6x"]
 shader = ExtResource("1_y0n7q")

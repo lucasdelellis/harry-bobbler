@@ -17,7 +17,7 @@ scale = Vector2(3, 3)
 script = ExtResource("1_0tbos")
 win_scene = ExtResource("2_scmqb")
 lose_scene = ExtResource("3_7ocjj")
-max_blocks_per_level = 3
+max_blocks_per_level = 1
 
 [node name="MapGenerator" type="Node2D" parent="."]
 
@@ -50,4 +50,5 @@ stream = ExtResource("7_o1u51")
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="middle_generation" from="Player" to="." method="_on_player_middle_generation"]
+[connection signal="portal_entered" from="Player" to="." method="_on_player_portal_entered"]
 [connection signal="up_generation" from="Player" to="." method="_on_player_up_generation"]
