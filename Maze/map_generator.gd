@@ -42,6 +42,7 @@ func _process(delta: float) -> void:
 	
 func SpawnNewBlock(direction : DirectionType):                     
 	if currentGen >= 3 :
+		print("holaaa")
 		get_tree().change_scene_to_packed(win_scene)
 		return
 

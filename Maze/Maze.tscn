@@ -1,8 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://1aklxhhykdun"]
+[gd_scene load_steps=11 format=3 uid="uid://1aklxhhykdun"]
 
 [ext_resource type="Script" path="res://Maze/map_generator.gd" id="1_0tbos"]
 [ext_resource type="Script" path="res://Maze/player_path.gd" id="2_k1xaw"]
 [ext_resource type="PackedScene" uid="uid://b1f0lrb0gic6p" path="res://Player/player.tscn" id="2_lfliu"]
+[ext_resource type="PackedScene" uid="uid://dwh4sqtwn3o8t" path="res://win.tscn" id="2_scmqb"]
+[ext_resource type="PackedScene" uid="uid://bmrj6n7vdlebl" path="res://Lose/lose.tscn" id="3_7ocjj"]
 [ext_resource type="Script" path="res://Maze/spawn.gd" id="4_8ybdi"]
 [ext_resource type="PackedScene" path="res://Maze/scrollling.tscn" id="4_eika2"]
 [ext_resource type="PackedScene" uid="uid://bfq7er3u5bj8x" path="res://UI/hud.tscn" id="4_iaxdl"]
@@ -10,9 +12,12 @@
 
 [sub_resource type="Curve2D" id="Curve2D_xmqdl"]
 
-[node name="Maze" type="Node2D"]
+[node name="Maze" type="Node2D" node_paths=PackedStringArray("jugador")]
 scale = Vector2(3, 3)
 script = ExtResource("1_0tbos")
+jugador = NodePath("Player")
+win_scene = ExtResource("2_scmqb")
+lose_scene = ExtResource("3_7ocjj")
 
 [node name="MapGenerator" type="Node2D" parent="."]
 
