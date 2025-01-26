@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=4 uid="uid://c411g6pxp4p81"]
+[gd_scene load_steps=9 format=4 uid="uid://c411g6pxp4p81"]
 
 [ext_resource type="Texture2D" uid="uid://cxvb4pu2v5kjv" path="res://Maze/Tilesetv3.png" id="1_kmqgi"]
 [ext_resource type="Texture2D" uid="uid://71xp8u5x8w3b" path="res://Maze/tilemap_packed.png" id="1_q5vts"]
+[ext_resource type="Script" path="res://Maze/spawn_points.gd" id="3_766gx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bv3av"]
 texture = ExtResource("1_kmqgi")
@@ -885,3 +886,48 @@ collision_layer = 8
 [node name="StairsCollision" type="CollisionShape2D" parent="AreaStairs"]
 position = Vector2(51.5, -12)
 shape = SubResource("RectangleShape2D_5v334")
+
+[node name="DownSpawnNodes" type="Node" parent="."]
+
+[node name="Down1" type="Node2D" parent="DownSpawnNodes"]
+position = Vector2(170, 55)
+
+[node name="Down2" type="Node2D" parent="DownSpawnNodes"]
+position = Vector2(250, 55)
+
+[node name="Down3" type="Node2D" parent="DownSpawnNodes"]
+position = Vector2(340, 55)
+
+[node name="MiddleSpawnNodes" type="Node" parent="."]
+
+[node name="Middle1" type="Node2D" parent="MiddleSpawnNodes"]
+position = Vector2(170, -10)
+
+[node name="Middle2" type="Node2D" parent="MiddleSpawnNodes"]
+position = Vector2(250, -10)
+
+[node name="Middle3" type="Node2D" parent="MiddleSpawnNodes"]
+position = Vector2(340, -10)
+
+[node name="UpSpawnNodes" type="Node" parent="."]
+
+[node name="Up1" type="Node2D" parent="UpSpawnNodes"]
+position = Vector2(170, -76)
+
+[node name="Up2" type="Node2D" parent="UpSpawnNodes"]
+position = Vector2(250, -76)
+
+[node name="Up3" type="Node2D" parent="UpSpawnNodes"]
+position = Vector2(340, -76)
+
+[node name="SpawnPoints" type="Node2D" parent="." node_paths=PackedStringArray("up1", "up2", "up3", "middle1", "middle2", "middle3", "down1", "down2", "down3")]
+script = ExtResource("3_766gx")
+up1 = NodePath("../UpSpawnNodes/Up1")
+up2 = NodePath("../UpSpawnNodes/Up2")
+up3 = NodePath("../UpSpawnNodes/Up3")
+middle1 = NodePath("../MiddleSpawnNodes/Middle1")
+middle2 = NodePath("../MiddleSpawnNodes/Middle2")
+middle3 = NodePath("../MiddleSpawnNodes/Middle3")
+down1 = NodePath("../DownSpawnNodes/Down1")
+down2 = NodePath("../DownSpawnNodes/Down2")
+down3 = NodePath("../DownSpawnNodes/Down3")
