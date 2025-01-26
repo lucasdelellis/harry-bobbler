@@ -21,7 +21,7 @@ enum CurrentMovementType{
 
 var CurrentMovement
 
-@export var speed: int = 80
+@export var speed: int
 var tileSize = 16
 var pathLenght = 22
 var stairLenght = 4
@@ -30,7 +30,7 @@ var pathLenghtInPixel = pathLenght * tileSize
 var life
 
 func _ready() -> void:
-	position.x = -144
+	position.x = -9 * tileSize
 	life = 3
 	is_protection_bubble_active = false
 	current_mana = mana
@@ -40,7 +40,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	var velocity = Vector2.ZERO
+	var velocity = Vector2(speed * delta, 0)
+	position += velocity
+	
 	if Input.is_action_just_pressed("up"):
 		CurrentMovement = CurrentMovementType.MOVE_UP
 	if Input.is_action_just_pressed("down"):
@@ -49,19 +51,22 @@ func _process(delta: float) -> void:
 	update_mana(delta)
 
 func stairsMovement():
-	var tween = create_tween()
-	var newPosition = position
-	
-	if CurrentMovement == CurrentMovementType.MOVE_UP:
-		newPosition = position + Vector2(80.0,-64.0)
-		tween.tween_property(self,"position",newPosition,1)
+	if CurrentMovement != CurrentMovementType.MOVE_MIDDLE:
+		var tween = create_tween()
+		var newPosition = position
 		
-	if CurrentMovement == CurrentMovementType.MOVE_DOWN:
-		newPosition = position + Vector2(90.0,64.0)
+		var current_speed = speed
+		speed = 0
+		if CurrentMovement == CurrentMovementType.MOVE_UP:
+			newPosition = position + Vector2(80.0,-64.0)
+			
+		if CurrentMovement == CurrentMovementType.MOVE_DOWN:
+			newPosition = position + Vector2(90.0,64.0)
+
 		tween.tween_property(self,"position", newPosition,1)
-		
-	tween.tween_property(self,"position", newPosition + Vector2(pathLenghtInPixel, 0), pathLenghtInPixel / 80)
-	CurrentMovement = CurrentMovementType.MOVE_MIDDLE
+		speed = current_speed
+			
+		CurrentMovement = CurrentMovementType.MOVE_MIDDLE
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("enemies"):
@@ -85,12 +90,10 @@ func _on_area_entered(area: Area2D) -> void:
 		stairsMovement()
 		
 	if area.is_in_group("enemies"):
-		print(area)
 		get_hit()
 		area.queue_free()
 		
 func get_hit() -> void:
-	print("Get Hit")
 	life -= 1
 	hit.emit()
 	if life == 0:
@@ -100,9 +103,9 @@ func update_mana(delta: float) -> void:
 	if is_protection_bubble_active:
 		current_mana -= $ProtectionBubble.consumption * delta
 		
-		if current_mana <= 0:
-			$ProtectionBubble.enabled = false
-			$ProtectionBubble.deactivate()
+	if current_mana <= 0:
+		$ProtectionBubble.enabled = false
+		$ProtectionBubble.deactivate()
 
 
 func _on_protection_bubble_bubble_protection_activate() -> void:

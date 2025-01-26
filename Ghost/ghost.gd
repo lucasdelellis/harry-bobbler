@@ -10,7 +10,6 @@ func _ready() -> void:
 	posicion_inicial = position.y
 	velocity.y = -100
 	velocity.x = velocidadX
-	print(posicion_inicial)
 
 func _physics_process(delta: float) -> void:
 	if position.y <= posicion_inicial-limite:

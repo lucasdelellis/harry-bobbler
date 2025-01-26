@@ -31,12 +31,10 @@ func deactivate() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	print("Bubble")
 	area.hide()
 	area.queue_free()
 
 
 func _on_body_entered(body: Node2D) -> void:
-	print("Bubble")
 	body.hide()
 	body.queue_free()
