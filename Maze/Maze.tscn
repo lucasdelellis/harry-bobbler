@@ -25,7 +25,7 @@ script = ExtResource("2_k1xaw")
 [node name="Player" parent="." instance=ExtResource("2_lfliu")]
 z_index = 1
 mana = 5.0
-speed = 20
+speed = 150
 
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2(100, 0)

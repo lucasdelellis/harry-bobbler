@@ -93,6 +93,7 @@ func _on_area_entered(area: Area2D) -> void:
 		get_hit()
 		area.queue_free()
 		
+		
 func get_hit() -> void:
 	life -= 1
 	hit.emit()

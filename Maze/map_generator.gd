@@ -4,6 +4,7 @@ var mazeBlockCommon
 var mazeBlockUp
 var mazeBlockMiddle
 var mazeBlockDown
+var mazeBlockFinal
 
 var tileSize = 16
 var pathLenght = 22
@@ -24,6 +25,7 @@ func _ready() -> void:
 	mazeBlockUp = load("res://Maze/MapBlockUp.tscn")
 	mazeBlockMiddle = load("res://Maze/MapBlockMiddle.tscn")
 	mazeBlockDown = load("res://Maze/MapBlockDown.tscn")
+	mazeBlockFinal = load("res://Maze/MapBlockFinal.tscn")
 	var blockInstance = mazeBlockCommon.instantiate()
 	add_child(blockInstance)
 	lastCrossPosition = Vector2(0.0,0.0)
@@ -39,6 +41,7 @@ func _process(delta: float) -> void:
 	
 func SpawnNewBlock(direction : DirectionType):
 	var blockInstance
+	
 	#lastCrossPosition = Vector2(lastCrossPosition.x + tileSize * pathLenght, lastCrossPosition.y)
 	if direction == DirectionType.UP:
 		lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0,lastCrossPosition.y +  -64.0)
@@ -50,11 +53,15 @@ func SpawnNewBlock(direction : DirectionType):
 		lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0,lastCrossPosition.y + 64.0)
 		blockInstance = mazeBlockDown.instantiate()
 		
-
-	add_child(blockInstance)
-	blockInstance.position = lastCrossPosition
-	$Spawn.Spawn(blockInstance,currentGen)
-	currentGen+=1
+	if(currentGen==8):
+		blockInstance = mazeBlockFinal.instantiate()
+		add_child(blockInstance)
+		blockInstance.position = lastCrossPosition
+	else:
+		add_child(blockInstance)
+		blockInstance.position = lastCrossPosition
+		$Spawn.Spawn(blockInstance,currentGen)
+		currentGen+=1
 		
 	
 
