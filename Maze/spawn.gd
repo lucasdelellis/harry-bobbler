@@ -24,23 +24,26 @@ func Spawn(block,currentGen):
 	var index=0
 	for spawnNode in spawnPoints.upNodes:
 		var newSpawn = GetSpawn(currentGen,0,index)
-		add_child(newSpawn)
-		newSpawn.position.x = block.position.x + spawnNode.position.x
-		newSpawn.position.y =  block.position.y + spawnNode.position.y
+		if(newSpawn!=null):
+			add_child(newSpawn)
+			newSpawn.position.x = block.position.x + spawnNode.position.x
+			newSpawn.position.y =  block.position.y + spawnNode.position.y
 		index+=1
 	index = 0
 	for spawnNode in spawnPoints.middleNodes:
 		var newSpawn = GetSpawn(currentGen,1,index)
-		add_child(newSpawn)
-		newSpawn.position.x = block.position.x + spawnNode.position.x
-		newSpawn.position.y =  block.position.y +spawnNode.position.y
+		if(newSpawn!=null):
+			add_child(newSpawn)
+			newSpawn.position.x = block.position.x + spawnNode.position.x
+			newSpawn.position.y =  block.position.y +spawnNode.position.y
 		index+=1
 	index = 0
 	for spawnNode in spawnPoints.downNodes:
 		var newSpawn = GetSpawn(currentGen,2,index)
-		add_child(newSpawn)
-		newSpawn.position.x = block.position.x + spawnNode.position.x
-		newSpawn.position.y = block.position.y + spawnNode.position.y
+		if(newSpawn!=null):
+			add_child(newSpawn)
+			newSpawn.position.x = block.position.x + spawnNode.position.x
+			newSpawn.position.y = block.position.y + spawnNode.position.y
 		index+=1
 		
 func GetSpawn(gen,pos,num):
