@@ -2,6 +2,8 @@ extends Control
 
 var maze_scene = load("res://Maze/Maze.tscn")
 
+var flagg = 0
+
 func _ready():
 	$MenuVideo.show()
 	$Play.show()
@@ -9,6 +11,22 @@ func _ready():
 	$BackToMenu.hide()
 	$InstLabels.visible = false
 	$InstructionsBackG.visible = false
+	
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("action"):
+		if flagg == 0:
+			_on_play_pressed()
+			flagg = 1
+		else:
+			_on_back_to_menu_pressed()
+			flagg = 0
+	if Input.is_action_just_pressed("mana"):
+		if flagg == 0:
+			_on_instructions_pressed()
+			flagg = 1
+		else:
+			_on_back_to_menu_pressed()
+			flagg = 0
 
 func _on_instructions_pressed():
 	$MenuVideo.visible = false

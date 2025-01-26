@@ -39,7 +39,6 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	print(current_mana)
 	var velocity = Vector2(speed * delta, 0)
 	position += velocity
 	

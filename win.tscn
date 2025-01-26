@@ -152,6 +152,7 @@ texture = ExtResource("6_d40n4")
 metadata/_edit_lock_ = true
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 457.0
 offset_top = 58.0
 offset_right = 676.0
@@ -160,6 +161,20 @@ theme_override_fonts/font = ExtResource("7_5afj5")
 theme_override_font_sizes/font_size = 30
 text = "Choose Upgrade"
 horizontal_alignment = 1
+
+[node name="Luz corazon" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 200.0
+offset_top = 132.0
+offset_right = 404.0
+offset_bottom = 238.0
+
+[node name="Luz mana" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 702.0
+offset_top = 122.0
+offset_right = 906.0
+offset_bottom = 228.0
 
 [connection signal="pressed" from="continuar" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="continuar" to="." method="_on_continuar_pressed"]

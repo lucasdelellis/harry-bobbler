@@ -47,6 +47,7 @@ script = ExtResource("4_8ybdi")
 stream = ExtResource("7_o1u51")
 
 [connection signal="down_generation" from="Player" to="." method="_on_player_down_generation"]
+[connection signal="game_over" from="Player" to="." method="_on_player_game_over"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
 [connection signal="middle_generation" from="Player" to="." method="_on_player_middle_generation"]
 [connection signal="up_generation" from="Player" to="." method="_on_player_up_generation"]
