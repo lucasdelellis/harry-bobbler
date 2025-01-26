@@ -27,7 +27,7 @@ func _on_timer_timeout() -> void:
 	if is_visible:
 		create_tween().tween_property(self,"modulate:a",1,0.1)
 	else:
-		create_tween().tween_property(self,"modulate:a",0,0.1)
+		create_tween().tween_property(self,"modulate:a",0.2,0.1)
 
 		
 	

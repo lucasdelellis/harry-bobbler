@@ -9,6 +9,7 @@ var mazeBlockFinal = preload("res://Maze/MapBlockFinal.tscn")
 var main_scene = preload("res://Menu/menu.tscn")
 
 @export var win_scene : PackedScene
+@export var power_ups : PackedScene
 @export var lose_scene : PackedScene
 @export var max_blocks_per_level : int
 
@@ -97,7 +98,7 @@ func _on_player_portal_entered() -> void:
 	if globals.nivel <= 3:
 		globals.nivel += 1
 		globals.speed += 30
-		get_tree().change_scene_to_packed(win_scene)
+		get_tree().change_scene_to_packed(power_ups)
 	else:
-		get_tree().change_scene_to_packed(lose_scene)
+		get_tree().change_scene_to_packed(win_scene)
 	
