@@ -33,6 +33,8 @@ func _ready() -> void:
 	globals.life = 3
 	is_protection_bubble_active = false
 	current_mana = mana
+	
+	$AnimatedSprite2D.play("run")
 
 	CurrentMovement = CurrentMovementType.MOVE_MIDDLE
 	stairsMovement()
@@ -92,12 +94,23 @@ func _on_area_entered(area: Area2D) -> void:
 		get_hit()
 		area.queue_free()
 		
+		
 func get_hit() -> void:
 	globals.life -= 1
 	hit.emit()
 	if globals.life == 0:
+		$AnimatedSprite2D.play("deadth")
+		speed = 0
 		game_over.emit()
+		return
 		
+	$AnimatedSprite2D.play("hit")
+	var current_speed = speed
+	speed = speed * 0.2
+	await $AnimatedSprite2D.animation_finished
+	speed = current_speed
+	$AnimatedSprite2D.play("run")
+
 func update_mana(delta: float) -> void:
 	if is_protection_bubble_active:
 		current_mana -= $ProtectionBubble.consumption * delta

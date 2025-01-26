@@ -4,6 +4,7 @@ var mazeBlockCommon
 var mazeBlockUp
 var mazeBlockMiddle
 var mazeBlockDown
+var mazeBlockFinal
 
 @export var jugador : Area2D
 @export var win_scene : PackedScene
@@ -28,6 +29,7 @@ func _ready() -> void:
 	mazeBlockUp = load("res://Maze/MapBlockUp.tscn")
 	mazeBlockMiddle = load("res://Maze/MapBlockMiddle.tscn")
 	mazeBlockDown = load("res://Maze/MapBlockDown.tscn")
+	mazeBlockFinal = load("res://Maze/MapBlockFinal.tscn")
 	var blockInstance = mazeBlockCommon.instantiate()
 	add_child(blockInstance)
 	lastCrossPosition = Vector2(0.0,0.0)
@@ -42,25 +44,23 @@ func _process(delta: float) -> void:
 	var mana_percentage = $Player.current_mana * 100 / $Player.mana
 	$HUD.update_mana(mana_percentage)
 	
-func SpawnNewBlock(direction : DirectionType):
-	print(currentGen)                         
+func SpawnNewBlock(direction : DirectionType):                     
 	if currentGen >= 3 :
 		get_tree().change_scene_to_packed(win_scene)
-		
-	else:
-		var blockInstance
-		#lastCrossPosition = Vector2(lastCrossPosition.x + tileSize * pathLenght, lastCrossPosition.y)
-		if direction == DirectionType.UP:
-			lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0,lastCrossPosition.y +  -64.0)
-			blockInstance = mazeBlockUp.instantiate()
-		elif direction == DirectionType.MIDDLE:
-			lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0,lastCrossPosition.y + 0.0)
-			blockInstance = mazeBlockMiddle.instantiate()
-		elif direction == DirectionType.DOWN:
-			lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0,lastCrossPosition.y + 64.0)
-			blockInstance = mazeBlockDown.instantiate()
-			
+		return
 
+	var blockInstance
+	
+	#lastCrossPosition = Vector2(lastCrossPosition.x + tileSize * pathLenght, lastCrossPosition.y)
+	if direction == DirectionType.UP:
+		lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0,lastCrossPosition.y +  -64.0)
+		blockInstance = mazeBlockUp.instantiate()
+	elif direction == DirectionType.MIDDLE:
+		lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0,lastCrossPosition.y + 0.0)
+		blockInstance = mazeBlockMiddle.instantiate()
+	elif direction == DirectionType.DOWN:
+		lastCrossPosition = Vector2(lastCrossPosition.x+ 352.0,lastCrossPosition.y + 64.0)
+		blockInstance = mazeBlockDown.instantiate()
 		add_child(blockInstance)
 		blockInstance.position = lastCrossPosition
 		$Spawn.Spawn(blockInstance,currentGen)
