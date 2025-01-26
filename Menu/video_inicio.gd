@@ -8,4 +8,5 @@ func _process(delta: float) -> void:
 
 
 func _on_video_inicio_finished() -> void:
+	$Globals.playMenu()
 	get_tree().change_scene_to_packed(menu_scene)

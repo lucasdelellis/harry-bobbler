@@ -17,4 +17,5 @@ func _on_instructions_pressed():
 
 func _on_play_pressed():
 	globals.life = 3
+	$Globals.stopMenu()
 	get_tree().change_scene_to_packed(maze_scene)
