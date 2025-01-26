@@ -25,7 +25,7 @@ enum DirectionType {
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$Globals.playGame()
+	$Gameplay.play()
 	var blockInstance = mazeBlockCommon.instantiate()
 	add_child(blockInstance)
 	lastCrossPosition = Vector2(0.0,0.0)

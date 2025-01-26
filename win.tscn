@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dwh4sqtwn3o8t"]
 
-[ext_resource type="Script" path="res://Win/win.gd" id="1_jr6bd"]
+[ext_resource type="Script" path="res://win.gd" id="1_jr6bd"]
 [ext_resource type="Texture2D" uid="uid://bs2tmvkkqhp46" path="res://assets/menu/back.png" id="2_8wsuj"]
 [ext_resource type="Texture2D" uid="uid://beyvauj6pavp" path="res://assets/menu/button.png" id="2_ooj0e"]
 [ext_resource type="LabelSettings" uid="uid://crhvi6kq4effe" path="res://assets/fonts/label_font.tres" id="3_cal5q"]

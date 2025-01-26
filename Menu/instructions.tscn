@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://bgqh6ajf05v5m"]
+[gd_scene load_steps=4 format=3 uid="uid://bgqh6ajf05v5m"]
 
 [ext_resource type="Script" path="res://Menu/instructions.gd" id="1_0gvv2"]
 [ext_resource type="Texture2D" uid="uid://beyvauj6pavp" path="res://assets/menu/button.png" id="1_ls653"]
 [ext_resource type="LabelSettings" uid="uid://crhvi6kq4effe" path="res://assets/fonts/label_font.tres" id="2_yfgga"]
-[ext_resource type="PackedScene" uid="uid://ba8bfwq20dccq" path="res://Globals/globals.tscn" id="4_g6s2f"]
 
 [node name="Instructions" type="Control"]
 layout_mode = 3
@@ -53,7 +52,5 @@ text = "Menu"
 label_settings = ExtResource("2_yfgga")
 horizontal_alignment = 1
 vertical_alignment = 1
-
-[node name="Globals" parent="." instance=ExtResource("4_g6s2f")]
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

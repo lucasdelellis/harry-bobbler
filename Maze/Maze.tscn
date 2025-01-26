@@ -1,11 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://1aklxhhykdun"]
 
 [ext_resource type="Script" path="res://Maze/map_generator.gd" id="1_0tbos"]
-<<<<<<< Updated upstream
 [ext_resource type="PackedScene" path="res://win.tscn" id="2_jh68n"]
-=======
-[ext_resource type="PackedScene" uid="uid://dwh4sqtwn3o8t" path="res://Win/win.tscn" id="2_jh68n"]
->>>>>>> Stashed changes
 [ext_resource type="Script" path="res://Maze/player_path.gd" id="2_k1xaw"]
 [ext_resource type="PackedScene" uid="uid://b1f0lrb0gic6p" path="res://Player/player.tscn" id="2_lfliu"]
 [ext_resource type="PackedScene" uid="uid://dwh4sqtwn3o8t" path="res://win.tscn" id="2_scmqb"]
@@ -13,11 +9,7 @@
 [ext_resource type="Script" path="res://Maze/spawn.gd" id="4_8ybdi"]
 [ext_resource type="PackedScene" path="res://Maze/scrollling.tscn" id="4_eika2"]
 [ext_resource type="PackedScene" uid="uid://bfq7er3u5bj8x" path="res://UI/hud.tscn" id="4_iaxdl"]
-<<<<<<< Updated upstream
 [ext_resource type="AudioStream" uid="uid://b54bnlrmdmype" path="res://Banda Sonora Harry Bobbler/Gameplay.mp3" id="7_o1u51"]
-=======
-[ext_resource type="PackedScene" uid="uid://ba8bfwq20dccq" path="res://Globals/globals.tscn" id="8_c7xlo"]
->>>>>>> Stashed changes
 
 [sub_resource type="Curve2D" id="Curve2D_xmqdl"]
 
@@ -53,12 +45,8 @@ script = ExtResource("4_8ybdi")
 
 [node name="HUD" parent="." instance=ExtResource("4_iaxdl")]
 
-<<<<<<< Updated upstream
 [node name="Gameplay" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_o1u51")
-=======
-[node name="Globals" parent="." instance=ExtResource("8_c7xlo")]
->>>>>>> Stashed changes
 
 [connection signal="down_generation" from="Player" to="." method="_on_player_down_generation"]
 [connection signal="hit" from="Player" to="." method="_on_player_hit"]
