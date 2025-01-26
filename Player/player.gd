@@ -27,11 +27,10 @@ var pathLenght = 22
 var stairLenght = 4
 var pathLenghtInPixel = pathLenght * tileSize
 
-var life
 
 func _ready() -> void:
 	position.x = -9 * tileSize
-	life = 3
+	globals.life = 3
 	is_protection_bubble_active = false
 	current_mana = mana
 	
@@ -97,10 +96,9 @@ func _on_area_entered(area: Area2D) -> void:
 		
 		
 func get_hit() -> void:
-	life -= 1
+	globals.life -= 1
 	hit.emit()
-	
-	if life == 0:
+	if globals.life == 0:
 		$AnimatedSprite2D.play("deadth")
 		speed = 0
 		game_over.emit()
