@@ -39,6 +39,8 @@ func _on_instructions_pressed():
 func _on_play_pressed():
 	globals.life = 3
 	globals.mana = 20
+	globals.nivel = 1
+	globals.speed = 170 
 	get_tree().change_scene_to_packed(maze_scene)
 
 func _on_back_to_menu_pressed():
@@ -47,4 +49,4 @@ func _on_back_to_menu_pressed():
 	$BackToMenu.hide()
 	$Instructions.show()
 	$InstructionsBackG.visible = false
-	$InstLabels.visible = false	
+	$InstLabels.visible = false

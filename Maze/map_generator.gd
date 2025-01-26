@@ -94,4 +94,10 @@ func _on_player_game_over() -> void:
 
 
 func _on_player_portal_entered() -> void:
-	get_tree().change_scene_to_packed(main_scene)
+	if globals.nivel <= 3:
+		globals.nivel += 1
+		globals.speed += 30
+		get_tree().change_scene_to_packed(win_scene)
+	else:
+		get_tree().change_scene_to_packed(lose_scene)
+	

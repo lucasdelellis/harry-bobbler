@@ -29,6 +29,7 @@ var pathLenghtInPixel = pathLenght * tileSize
 
 
 func _ready() -> void:
+	speed = globals.speed
 	position.x = -9 * tileSize
 	is_protection_bubble_active = false
 	current_mana = globals.mana

@@ -18,19 +18,15 @@ func _ready():
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("action") && flagg == 0:
 			_on_heart_pressed()
-			print("hola")
 			
 	elif Input.is_action_just_pressed("mana") && flagg == 0:
 			_on_mana_pressed()
-			print("hola2")
 			
 	elif Input.is_action_just_pressed("mana") && flagg == 1:
 		_on_continuar_pressed()
-		print("hola3")
 		
 	elif Input.is_action_just_pressed("action") && flagg == 1:
 		_on_continuar_pressed()
-		print("hola4")
 
 	
 

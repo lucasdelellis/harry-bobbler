@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Maze/map_generator.gd" id="1_0tbos"]
 [ext_resource type="Script" path="res://Maze/player_path.gd" id="2_k1xaw"]
 [ext_resource type="PackedScene" uid="uid://b1f0lrb0gic6p" path="res://Player/player.tscn" id="2_lfliu"]
-[ext_resource type="PackedScene" uid="uid://dwh4sqtwn3o8t" path="res://win.tscn" id="2_scmqb"]
+[ext_resource type="PackedScene" path="res://win.tscn" id="2_scmqb"]
 [ext_resource type="PackedScene" uid="uid://bmrj6n7vdlebl" path="res://Lose/lose.tscn" id="3_7ocjj"]
 [ext_resource type="Script" path="res://Maze/spawn.gd" id="4_8ybdi"]
 [ext_resource type="PackedScene" uid="uid://bg581yjc1afni" path="res://Maze/scrollling.tscn" id="4_eika2"]
@@ -17,7 +17,7 @@ scale = Vector2(3, 3)
 script = ExtResource("1_0tbos")
 win_scene = ExtResource("2_scmqb")
 lose_scene = ExtResource("3_7ocjj")
-max_blocks_per_level = 1
+max_blocks_per_level = 2
 
 [node name="MapGenerator" type="Node2D" parent="."]
 
@@ -31,7 +31,7 @@ script = ExtResource("2_k1xaw")
 
 [node name="Player" parent="." instance=ExtResource("2_lfliu")]
 z_index = 1
-speed = 150
+speed = 170
 
 [node name="Camera" type="Camera2D" parent="Player"]
 position = Vector2(100, 0)
