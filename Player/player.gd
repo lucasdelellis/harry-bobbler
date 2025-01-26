@@ -24,7 +24,7 @@ var CurrentMovement
 @export var speed: int
 var tileSize = 16
 var pathLenght = 22
-var stairLenght = 4
+var stairLenght = 5
 var pathLenghtInPixel = pathLenght * tileSize
 
 
@@ -58,10 +58,10 @@ func stairsMovement():
 		var current_speed = speed
 		speed = 0
 		if CurrentMovement == CurrentMovementType.MOVE_UP:
-			newPosition = position + Vector2(80.0,-64.0)
+			newPosition = position + Vector2(stairLenght * tileSize, -1 * (stairLenght - 1) * tileSize)
 			
 		if CurrentMovement == CurrentMovementType.MOVE_DOWN:
-			newPosition = position + Vector2(90.0,64.0)
+			newPosition = position + Vector2(stairLenght * tileSize, (stairLenght - 1) * tileSize)
 
 		tween.tween_property(self,"position", newPosition,1)
 		speed = current_speed

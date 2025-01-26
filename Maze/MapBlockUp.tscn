@@ -840,8 +840,8 @@ sources/1 = SubResource("TileSetAtlasSource_bv3av")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_whgfo"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5bddl"]
-size = Vector2(21, 22)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gh5i"]
+size = Vector2(1, 22)
 
 [node name="MapBlock" type="Node2D"]
 metadata/_edit_group_ = true
@@ -885,8 +885,8 @@ position = Vector2(0, -1)
 collision_layer = 8
 
 [node name="StairsCollision" type="CollisionShape2D" parent="AreaStairs"]
-position = Vector2(52.5, -12)
-shape = SubResource("RectangleShape2D_5bddl")
+position = Vector2(64.5, -12)
+shape = SubResource("RectangleShape2D_0gh5i")
 
 [node name="DownSpawnNodes" type="Node" parent="."]
 
