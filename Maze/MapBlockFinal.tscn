@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://cvejqagjqsmpv"]
+[gd_scene load_steps=17 format=4 uid="uid://boi2tsedubaci"]
 
 [ext_resource type="Texture2D" uid="uid://cxvb4pu2v5kjv" path="res://Maze/Tilesetv3.png" id="1_ghwwf"]
 [ext_resource type="Script" path="res://Maze/map_block_final.gd" id="1_xuesc"]
 [ext_resource type="Texture2D" uid="uid://71xp8u5x8w3b" path="res://Maze/tilemap_packed.png" id="2_3v0it"]
+[ext_resource type="Texture2D" uid="uid://qvg7lilh11f" path="res://Maze/Dimensional_Portal.png" id="4_1p2oi"]
+[ext_resource type="AudioStream" uid="uid://cnofucux0imsc" path="res://Maze/portalsound.mp3" id="5_nl03m"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bv3av"]
 texture = ExtResource("1_ghwwf")
@@ -839,22 +841,81 @@ sources/2 = SubResource("TileSetAtlasSource_23ei4")
 sources/1 = SubResource("TileSetAtlasSource_bv3av")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wgqw5"]
-size = Vector2(23, 22)
+size = Vector2(17, 29)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybd0w"]
+atlas = ExtResource("4_1p2oi")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5sy8"]
+atlas = ExtResource("4_1p2oi")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r8nfr"]
+atlas = ExtResource("4_1p2oi")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0c51c"]
+atlas = ExtResource("4_1p2oi")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y605x"]
+atlas = ExtResource("4_1p2oi")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhndy"]
+atlas = ExtResource("4_1p2oi")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b6rxg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybd0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5sy8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r8nfr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0c51c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y605x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhndy")
+}],
+"loop": true,
+"name": &"portal",
+"speed": 8.0
+}]
 
 [node name="MapBlock" type="Node2D"]
 script = ExtResource("1_xuesc")
-metadata/_edit_group_ = true
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(64, -16)
 tile_map_data = PackedByteArray("AAADAAEAAQABAAIAAAACAAEAAQAAAAIAAAABAAEAAQAAAAIAAAAEAAEAAQABAAIAAAAFAAEAAQABAAIAAAAGAAEAAQABAAIAAAAHAAEAAQABAAIAAAD//wEAAQABAAIAAAD+/wEAAQABAAIAAAD9/wEAAQABAAIAAAD8/wEAAQABAAIAAAAIAAEAAQABAAIAAAAJAAEAAQABAAIAAAAKAAEAAQABAAIAAAALAAEAAQABAAIAAAAMAAEAAQABAAIAAAANAAEAAQABAAIAAAAOAAEAAQABAAIAAAAPAAEAAQABAAIAAAAQAAEAAQABAAIAAAARAAEAAQABAAIAAAAAAAEAAQABAAIAAAA=")
 tile_set = SubResource("TileSet_rxij8")
 
-[node name="AreaStairs" type="Area2D" parent="." groups=["end_round"]]
-collision_layer = 8
+[node name="AreaStairs" type="Area2D" parent="." groups=["portal"]]
+collision_layer = 16
 
 [node name="StairsCollision" type="CollisionShape2D" parent="AreaStairs"]
-position = Vector2(203.5, -12)
+position = Vector2(202.5, -15.5)
 shape = SubResource("RectangleShape2D_wgqw5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="AreaStairs"]
+position = Vector2(202, -15)
+sprite_frames = SubResource("SpriteFrames_b6rxg")
+animation = &"portal"
+frame_progress = 0.875761
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(202, -15)
+stream = ExtResource("5_nl03m")
 
 [connection signal="area_entered" from="AreaStairs" to="." method="_on_area_stairs_area_entered"]

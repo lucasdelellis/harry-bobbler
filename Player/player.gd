@@ -5,6 +5,7 @@ signal game_over
 signal up_generation
 signal middle_generation
 signal down_generation
+signal portal_entered
 
 var current_mana: float
 var is_protection_bubble_active: bool
@@ -39,7 +40,6 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
-	print(current_mana)
 	var velocity = Vector2(speed * delta, 0)
 	position += velocity
 	
@@ -93,6 +93,12 @@ func _on_area_entered(area: Area2D) -> void:
 		get_hit()
 		area.queue_free()
 		
+	if area.is_in_group("portal"):
+		speed = 0
+		var tween = create_tween()
+		tween.tween_property($AnimatedSprite2D, "modulate:a", 0, 1)
+		await tween.finished  
+		portal_entered.emit()
 		
 func get_hit() -> void:
 	globals.life -= 1

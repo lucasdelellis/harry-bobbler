@@ -156,6 +156,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Mana" type="Label" parent="InstLabels"]
+layout_mode = 0
 offset_left = 375.0
 offset_top = 200.0
 offset_right = 555.0
@@ -165,6 +166,7 @@ text = "Mana
 label_settings = ExtResource("5_g1hr1")
 
 [node name="ManaExp" type="Label" parent="InstLabels"]
+layout_mode = 0
 offset_left = 375.0
 offset_top = 237.0
 offset_right = 680.0
@@ -175,6 +177,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Life" type="Label" parent="InstLabels"]
+layout_mode = 0
 offset_left = 700.0
 offset_top = 200.0
 offset_right = 880.0
@@ -183,6 +186,7 @@ text = "Vidas"
 label_settings = ExtResource("5_g1hr1")
 
 [node name="LifeExp" type="Label" parent="InstLabels"]
+layout_mode = 0
 offset_left = 700.0
 offset_top = 237.0
 offset_right = 1005.0
@@ -224,6 +228,7 @@ offset_right = 620.0
 offset_bottom = 410.0
 
 [node name="Mana2" type="TextureRect" parent="InstLabels/ManaCont"]
+layout_mode = 0
 offset_left = 50.0
 offset_right = 90.0
 offset_bottom = 40.0
@@ -231,6 +236,7 @@ texture = ExtResource("10_pcrjv")
 expand_mode = 1
 
 [node name="Mana3" type="TextureRect" parent="InstLabels/ManaCont"]
+layout_mode = 0
 offset_left = 100.0
 offset_right = 140.0
 offset_bottom = 40.0
@@ -238,12 +244,14 @@ texture = ExtResource("10_pcrjv")
 expand_mode = 1
 
 [node name="Mana1" type="TextureRect" parent="InstLabels/ManaCont"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("10_pcrjv")
 expand_mode = 1
 
 [node name="Mana4" type="TextureRect" parent="InstLabels/ManaCont"]
+layout_mode = 0
 offset_left = 150.0
 offset_right = 190.0
 offset_bottom = 40.0
@@ -259,12 +267,14 @@ offset_right = 950.0
 offset_bottom = 440.0
 
 [node name="Life1" type="TextureRect" parent="InstLabels/LifeCont"]
+layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("11_0go86")
 expand_mode = 1
 
 [node name="Life2" type="TextureRect" parent="InstLabels/LifeCont"]
+layout_mode = 0
 offset_left = 50.0
 offset_right = 90.0
 offset_bottom = 40.0
@@ -272,6 +282,7 @@ texture = ExtResource("11_0go86")
 expand_mode = 1
 
 [node name="Life3" type="TextureRect" parent="InstLabels/LifeCont"]
+layout_mode = 0
 offset_left = 100.0
 offset_right = 140.0
 offset_bottom = 40.0
@@ -279,6 +290,7 @@ texture = ExtResource("11_0go86")
 expand_mode = 1
 
 [node name="Life4" type="TextureRect" parent="InstLabels/LifeCont"]
+layout_mode = 0
 offset_left = 150.0
 offset_right = 190.0
 offset_bottom = 40.0
