@@ -47,6 +47,7 @@ script = ExtResource("4_8ybdi")
 
 [node name="Gameplay" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_o1u51")
+parameters/looping = true
 
 [connection signal="down_generation" from="Player" to="." method="_on_player_down_generation"]
 [connection signal="game_over" from="Player" to="." method="_on_player_game_over"]

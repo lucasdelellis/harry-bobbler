@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://dwch46ervxqrt"]
+[gd_scene load_steps=14 format=3 uid="uid://dwch46ervxqrt"]
 
 [ext_resource type="Script" path="res://Menu/menu.gd" id="1_niej7"]
 [ext_resource type="VideoStream" path="res://assets/menu/menu.ogv" id="2_juhyh"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cvs4mpx3xqse5" path="res://Spikes/spike.png" id="9_n7pq5"]
 [ext_resource type="Texture2D" uid="uid://botnokfa4k67w" path="res://assets/ui/extra_mana.png" id="10_pcrjv"]
 [ext_resource type="Texture2D" uid="uid://qki5i1c0xk8b" path="res://assets/ui/heart.png" id="11_0go86"]
+[ext_resource type="AudioStream" uid="uid://bgg76x10pi02k" path="res://Banda Sonora Harry Bobbler/Menu.mp3" id="13_vq2wa"]
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -323,6 +324,10 @@ text = "Menu"
 label_settings = ExtResource("5_g1hr1")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="Menu" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("13_vq2wa")
+parameters/looping = true
 
 [connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
 [connection signal="pressed" from="Instructions" to="." method="_on_instructions_pressed"]
